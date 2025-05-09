@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 45c077feb1f2f5b4d8351c8b324ecf49
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 169790
+  packageName: BlockOut Prototype Kit
+  packageVersion: 1.0
+  assetPath: Assets/BlockOutKit/Asset/Shaders/Triplanar - SRP.shader
+  uploadId: 414330
