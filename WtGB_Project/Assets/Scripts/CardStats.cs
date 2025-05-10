@@ -26,12 +26,13 @@ namespace CardStats
 
         [Header("Counter Stats")]
         public float counterTime;
+        public float counterChance; // is the % to trigger a counter.
+        public int counterDamage;   
+        public float counterRange;
 
         [Header("Silly Stats")]
         public float castTime;
-
         public float cooldown;
-
         public string sideEffect;
 
 
