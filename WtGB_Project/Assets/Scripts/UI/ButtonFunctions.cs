@@ -31,4 +31,9 @@ public class ButtonFunctions : MonoBehaviour
 
         MainMenuManager.instance.CreditsActive = true;
     }
+
+    public void ContinueDialogue()
+    {
+        DialogueManager.instance.DisplayNextDialogueLine();
+    }
 }
