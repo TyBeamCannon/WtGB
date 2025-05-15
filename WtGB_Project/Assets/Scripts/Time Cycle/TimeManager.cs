@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Xml.Serialization;
 using UnityEngine;
@@ -29,6 +30,11 @@ namespace DPUtils.Systems.DateTime
 
         public static UnityAction<DateTime> OnDateTimeChanged;
 
+        // Tyler // Added logic for the Fatigue system
+        public FatigueManager fatigueManager;       //
+        private int lastHour = -1;                  //
+        // Tyler // Added logic for the Fatigue system
+
         private void Awake()
         {
             DateTime = new DateTime(dateInMonth, season - 1, year, hour, minutes * 10);
@@ -58,8 +64,20 @@ namespace DPUtils.Systems.DateTime
         void AdvanceTime()
         {
             DateTime.AdvanceMinutes(tickSecondsIncrease);
-
             OnDateTimeChanged?.Invoke(DateTime);
+
+            // Tyler // Added logic for the Fatigue system
+            if(DateTime.Hour < lastHour)                //
+            {                                           //
+                if(fatigueManager != null)              //
+                {                                       //
+                    fatigueManager.EndOfDayCheck();     //
+                }                                       //
+            }                                           //
+                                                        //
+            lastHour = DateTime.Hour;                   //
+            // Tyler // Added logic for the Fatigue system
+
         }
     }
 
