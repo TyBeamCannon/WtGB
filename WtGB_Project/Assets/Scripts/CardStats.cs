@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace CardStats
 {
-    [CreateAssetMenu(fileName = "new card", menuName = "Card")]
+    [CreateAssetMenu(menuName = "Scriptable Objects/Card")]
 
     public class Card : ScriptableObject
     {
