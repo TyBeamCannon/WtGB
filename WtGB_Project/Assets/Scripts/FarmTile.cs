@@ -98,6 +98,26 @@ public class FarmTile : MonoBehaviour
     }
 
 
+    // Adding the getterssss and maybe setters 
 
+    public bool IsTilled()
+    {
+        return isTilled;
+    }
+
+    public bool IsPlanted()
+    {
+        return isPlanted;
+    }
+
+    public bool IsWatered()
+    {
+        return isWatered;   
+    }
+
+    public bool IsFullyGrown()
+    {
+        return growthStage >= plantedSeed.totalGrowthStages;
+    }
 
 }
