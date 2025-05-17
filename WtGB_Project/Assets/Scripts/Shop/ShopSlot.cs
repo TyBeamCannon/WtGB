@@ -15,7 +15,7 @@ public class ShopSlot : MonoBehaviour
 
     private void Start()
     {
-        itemName.text = item.itemeName;
+        itemName.text = item.itemName;
         itemSprite.sprite = item.sprite;
         if (shopBuyButton != null)
         {
@@ -29,6 +29,11 @@ public class ShopSlot : MonoBehaviour
         }
     }
 
+    public void Initialize(Item item)
+    {
+        this.item = item;
+    }
+
     public void BuyItem()
     {
         ShopManager.instance.GivePlayerItem(item);
@@ -36,6 +41,7 @@ public class ShopSlot : MonoBehaviour
 
     public void SellItem()
     {
-
+        ShopManager.instance.SellItem(item);
+        Destroy(gameObject);
     }
 }

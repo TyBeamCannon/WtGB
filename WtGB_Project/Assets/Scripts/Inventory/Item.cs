@@ -7,7 +7,7 @@ public enum SlotTag { None };
 [CreateAssetMenu(menuName = "Scriptable Objects/Item")]
 public class Item : ScriptableObject
 {
-    public string itemeName;
+    public string itemName;
 
    public Sprite sprite;
     public SlotTag itemTag;
