@@ -55,9 +55,11 @@ public class InventoryManager : MonoBehaviour
         {
             item.activeSlot.SetItem(carriedItem);
         }
-
-        carriedItem = item;
-        carriedItem.canvasGroup.blocksRaycasts = false;
-        item.transform.SetParent(draggablesTransform);
+        else if (carriedItem == null && item.activeSlot != null)
+        {
+            carriedItem = item;
+            carriedItem.canvasGroup.blocksRaycasts = false;
+            item.transform.SetParent(draggablesTransform);
+        }
     }
 }
