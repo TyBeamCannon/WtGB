@@ -1063,6 +1063,9 @@ MonoBehaviour:
   minScale: 0.5
   maxScale: 1.5
   catchZone: {fileID: 1171250906}
+  lerpFrequency: 1.5
+  maxLerpDistance: 150
+  lerpSpeed: 5
 --- !u!58 &463876820
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2926,6 +2929,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470472753}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1496695759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8578201452895448651, guid: 9b7517725e8ad124c869f6f196fcb2ce, type: 3}
+  m_PrefabInstance: {fileID: 5940632313394519115}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &1496695767
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496695759}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1633701359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3956,6 +3989,30 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6064540793508958080, guid: 9b7517725e8ad124c869f6f196fcb2ce, type: 3}
+      propertyPath: gravity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064540793508958080, guid: 9b7517725e8ad124c869f6f196fcb2ce, type: 3}
+      propertyPath: jumpMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064540793508958080, guid: 9b7517725e8ad124c869f6f196fcb2ce, type: 3}
+      propertyPath: jumpForce
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064540793508958080, guid: 9b7517725e8ad124c869f6f196fcb2ce, type: 3}
+      propertyPath: jumpSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064540793508958080, guid: 9b7517725e8ad124c869f6f196fcb2ce, type: 3}
+      propertyPath: sprintMod
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064540793508958080, guid: 9b7517725e8ad124c869f6f196fcb2ce, type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 1496695767}
+    - target: {fileID: 6064540793508958080, guid: 9b7517725e8ad124c869f6f196fcb2ce, type: 3}
       propertyPath: fatigueManager
       value: 
       objectReference: {fileID: 1775115564}
@@ -4006,7 +4063,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8578201452895448651, guid: 9b7517725e8ad124c869f6f196fcb2ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1496695767}
   m_SourcePrefab: {fileID: 100100000, guid: 9b7517725e8ad124c869f6f196fcb2ce, type: 3}
 --- !u!1001 &6568769989272668825
 PrefabInstance:
