@@ -4082,7 +4082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6673381600984418557, guid: 778959006bb6d3446af99f1c427a4dc8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.08
+      value: 0.069
       objectReference: {fileID: 0}
     - target: {fileID: 6673381600984418557, guid: 778959006bb6d3446af99f1c427a4dc8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4120,7 +4120,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: FarmTile
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5194330228623465086, guid: 778959006bb6d3446af99f1c427a4dc8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
