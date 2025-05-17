@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour
@@ -18,6 +19,11 @@ public class PlayerCharacter : MonoBehaviour
     int jumpCount;
     bool isGrounded;
     bool isSprinting;
+
+    private FarmTile currentfarmTile;
+    private MiningNode currentMiningNode;
+    private FishingTrigger currentFishingSpot;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -81,5 +87,21 @@ public class PlayerCharacter : MonoBehaviour
             jumpCount++;
             velocity.y = jumpSpeed;
         }       
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.TryGetComponent(out FarmTile farm)) currentfarmTile = farm;
+        if (other.TryGetComponent(out MiningNode node)) currentMiningNode = node;
+        if (other.TryGetComponent(out FishingTrigger spot)) currentFishingSpot = spot;
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out FarmTile farm) && farm == currentfarmTile) currentfarmTile = null;
+        if (other.TryGetComponent(out MiningNode node) && node == currentMiningNode) currentMiningNode = null;
+        if (other.TryGetComponent(out FishingTrigger spot) && spot == currentFishingSpot) currentFishingSpot = null;
     }
 }
