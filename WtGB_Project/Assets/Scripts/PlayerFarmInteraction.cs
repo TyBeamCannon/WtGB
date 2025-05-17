@@ -17,13 +17,19 @@ public class PlayerFarmInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        Debug.Log("PlayerFarmInteraction Update running");
+
         if(currentTile == null)
-        {
             return;
-        }
+        
+
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+
+            Debug.Log("Pressed E near Tile");
+
             if(!currentTile.IsTilled())
             {
                 currentTile.Till();
@@ -53,6 +59,7 @@ public class PlayerFarmInteraction : MonoBehaviour
     {
         if (other.TryGetComponent(out FarmTile tile))
         {
+            Debug.Log("Entered FarmTile: " + tile.name);
             currentTile = tile;
         }
     }

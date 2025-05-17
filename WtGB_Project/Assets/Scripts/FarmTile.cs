@@ -17,6 +17,16 @@ public class FarmTile : MonoBehaviour
 
     public float growSpeedMult = 1f;
 
+    [Header("Harvest Drop")]
+    public GameObject harvestDropPrefab;
+    public Vector3 dropOffset = new Vector3(0f, 1f, 0f);  
+
+
+    private void Start()
+    {
+       
+    }
+
     private void Update()
     {
         if(isPlanted && isWatered && plantedSeed != null)
@@ -46,6 +56,9 @@ public class FarmTile : MonoBehaviour
             isPlanted = true;
             growthStage = 0;
             growthTimer = 0f;
+
+            harvestDropPrefab = seed.harvetDropPrefab;
+
             UpdateVisual();
         }
     }
@@ -55,7 +68,7 @@ public class FarmTile : MonoBehaviour
         if(!isTilled)
         {
             isTilled = true;
-            spriteRenderer.sprite = tilledSprite;
+            UpdateVisual();
         }
     }
 
@@ -73,6 +86,19 @@ public class FarmTile : MonoBehaviour
         if(isPlanted && growthStage >= plantedSeed.totalGrowthStages)
         {
             Debug.Log("Crop harvested: " + plantedSeed.cropName);
+
+            if(harvestDropPrefab != null )
+            {
+                GameObject drop = Instantiate(harvestDropPrefab, transform.position + dropOffset, Quaternion.identity);
+                Rigidbody rb = drop.GetComponent<Rigidbody>();
+                if(rb != null )
+                {
+                    Vector3 launchDirection = Vector3.up * 4f + Vector3.right * Random.Range(-1f, 1f);
+                    rb.AddForce(launchDirection, ForceMode.Impulse);
+                }
+
+            }
+
             ResetTile();
         }
     }
@@ -90,9 +116,17 @@ public class FarmTile : MonoBehaviour
 
     private void UpdateVisual()
     {
+        if (isTilled && !isPlanted)
+        {
+            Debug.Log("Updating sprite to tilledSprite!");
+            spriteRenderer.sprite = tilledSprite;
+            return;
+        }
+
         if(isPlanted && growthStageSprites.Length > 0)
         {
             int index = Mathf.Clamp(growthStage, 0 , growthStageSprites.Length - 1);
+            Debug.Log("Updating sprite to growth stage: " + index);
             spriteRenderer.sprite = growthStageSprites[index];
         }
     }

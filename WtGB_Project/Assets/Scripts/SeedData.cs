@@ -8,5 +8,5 @@ public class SeedData : ScriptableObject
     public string cropName;
     public float growthTimePerStage = 2f;
     public int totalGrowthStages = 3;
-
+    public GameObject harvetDropPrefab = null;
 }
