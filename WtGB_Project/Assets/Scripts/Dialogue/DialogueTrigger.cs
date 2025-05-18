@@ -31,7 +31,7 @@ public class DialogueTrigger : MonoBehaviour
 
     void TriggerDialogue()
     {
-        DialogueManager.instance.StartDialogue(dialogue);
+        GameManager.instance.StartDialogue(dialogue);
     }
 
     

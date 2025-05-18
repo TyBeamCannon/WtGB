@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -61,5 +63,42 @@ public class InventoryManager : MonoBehaviour
             carriedItem.canvasGroup.blocksRaycasts = false;
             item.transform.SetParent(draggablesTransform);
         }
+    }
+
+    public void LoadIntoInventory(InventoryItem item, int slotNum)
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            if (slotNum == i)
+            {
+                Instantiate(itemPrefab, inventorySlots[i].transform).Initialize(item.myItem, inventorySlots[i]);
+            }
+        }
+    }
+
+    public List<InventoryItem> SaveItemFromInventory()
+    {
+        List<InventoryItem> invItems = new List<InventoryItem>();
+        for (int i = 0;i < inventorySlots.Length;i++)
+        {
+            if (inventorySlots[i].myItem != null)
+            {
+                invItems.Add(inventorySlots[i].myItem);
+            }
+        }
+        return invItems;
+    }
+
+    public List<int> SaveItemSlotFromInventory()
+    {
+        List<int> invItemSlot = new List<int>();
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            if (inventorySlots[i].myItem != null)
+            {
+                invItemSlot.Add(i);
+            }
+        }
+        return invItemSlot;
     }
 }

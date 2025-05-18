@@ -37,7 +37,7 @@ public class ShopManager : MonoBehaviour
     {
         for (int i = 0; i < playerItems.Count; i++)
         {
-            
+                    
         }
     }
 

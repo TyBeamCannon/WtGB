@@ -46,7 +46,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialogueLines.Count == 0)
         {
-            EndDialogue();
+            GameManager.instance.EndDialogue();
             return;
         }
 
@@ -69,7 +69,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void EndDialogue()
+    public void EndDialogue()
     {
         isDialogueActive = false;
         animator.Play("Hide");
