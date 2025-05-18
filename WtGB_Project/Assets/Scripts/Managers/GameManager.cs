@@ -47,6 +47,10 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+#if UNITY_EDITOR
+        InventoryItems.Clear();
+        InventoryItemSlots.Clear();
+#endif
         if (instance == null)
             instance = this;
 

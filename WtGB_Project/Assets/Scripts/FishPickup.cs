@@ -20,6 +20,7 @@ public class FishPickup : MonoBehaviour
         {
             // Insert Inventory Logic here
             GameManager.instance.InventoryItems.Add(fish);
+            GameManager.instance.InventoryItemSlots.Add(GameManager.instance.InventoryItemSlots.Count);
             Destroy(gameObject);
         }
     }

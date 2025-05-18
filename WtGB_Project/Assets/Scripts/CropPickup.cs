@@ -19,6 +19,7 @@ public class CropPickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.instance.InventoryItems.Add(crop);
+            GameManager.instance.InventoryItemSlots.Add(GameManager.instance.InventoryItemSlots.Count);
             Destroy(gameObject);
         }
     }

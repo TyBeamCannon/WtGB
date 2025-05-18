@@ -41,6 +41,7 @@ public class ShopManager : MonoBehaviour
             buyObjectPrefab.Initialize(shopItemsOg[i]);
             Instantiate(buyObjectPrefab, buyContent.transform);
         }
+        
     }
 
     private void Update()
@@ -81,12 +82,19 @@ public class ShopManager : MonoBehaviour
 
     public void OpenShopUI()
     {
+        playerItems = new List<Item>(GameManager.instance.InventoryItems);
+
         shopUIOpen = true;
         shopUI.SetActive(true);
 
         goldCount.text = GameManager.instance.GoldCount.ToString();
 
-        
+        for (int i = 0; i < playerItems.Count; i++)
+        {
+            sellButtonPrefab.Initialize(playerItems[i]);
+            Instantiate(sellButtonPrefab, sellContent.transform);
+            Debug.Log("Open Shop Called");
+        }
     }
 
     public void CloseShopUI()
@@ -102,10 +110,12 @@ public class ShopManager : MonoBehaviour
             GameManager.instance.InventoryItemSlots.Clear();
             GameManager.instance.data.PlayerItems.Clear();
 
+
             for (int k = 0; k < playerItems.Count; k++)
             {
                 GameManager.instance.InventoryItems.Add(playerItems[k]);
                 GameManager.instance.InventoryItemSlots.Add(k);
+                Destroy(sellContent.transform.GetChild(k).gameObject);
             }
             Debug.Log("Transferred to GM: " + GameManager.instance.InventoryItems.Count);
         }

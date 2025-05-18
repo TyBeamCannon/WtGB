@@ -2663,8 +2663,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 93076b2edf4fbf942ab5603991b93ffe, type: 2}
   - {fileID: 11400000, guid: 66944dd4a6052b046a185ef081cdfefa, type: 2}
   - {fileID: 11400000, guid: d98fdf7c077b23c4c9041402a7729284, type: 2}
-  playerItems:
-  - {fileID: 11400000, guid: d98fdf7c077b23c4c9041402a7729284, type: 2}
+  playerItems: []
   shopItems:
   - {fileID: 0}
 --- !u!114 &1962515400251825686

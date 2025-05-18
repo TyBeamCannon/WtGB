@@ -7,6 +7,8 @@ public class ShopTrigger : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
+        if (other.isTrigger)
+            return;
         ShopManager.instance.OpenShopUI();
     }
 

@@ -20,6 +20,7 @@ public class OrePickup : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             GameManager.instance.InventoryItems.Add(ore);
+            GameManager.instance.InventoryItemSlots.Add(GameManager.instance.InventoryItemSlots.Count);
             Destroy(gameObject);
         }
     }
