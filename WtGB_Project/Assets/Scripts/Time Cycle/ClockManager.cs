@@ -36,14 +36,16 @@ public class ClockManager : MonoBehaviour
         date.text = dateTime.DateToString();
         time.text = dateTime.TimeToString();
         week.text = $"WK: {dateTime.CurrentWeek.ToString()}";
+        if (sunlight.type != LightType.Point)
+        {
+            float t = (float)dateTime.Hour / 24f;
 
-        float t = (float)dateTime.Hour / 24f;
+            float newRotation = Mathf.Lerp(0, 360, t);
+            clockFace.localEulerAngles = new Vector3(0, 0, newRotation + startingRotation);
 
-        float newRotation = Mathf.Lerp(0, 360, t);
-        clockFace.localEulerAngles = new Vector3(0, 0, newRotation + startingRotation);
+            float dayNightT = dayNightCurve.Evaluate(t);
 
-        float dayNightT = dayNightCurve.Evaluate(t);
-
-        sunlight.intensity = Mathf.Lerp(nightIntensity, dayIntensity, dayNightT);
+            sunlight.intensity = Mathf.Lerp(nightIntensity, dayIntensity, dayNightT);
+        }
     }
 }

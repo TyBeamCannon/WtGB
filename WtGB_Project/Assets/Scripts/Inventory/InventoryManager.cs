@@ -8,7 +8,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager instance;
     public static InventoryItem carriedItem;
 
-    [SerializeField] InventorySlot[] inventorySlots;
+    [SerializeField] public InventorySlot[] inventorySlots;
 
     [SerializeField] Transform draggablesTransform;
     [SerializeField] InventoryItem itemPrefab;
@@ -65,25 +65,36 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void LoadIntoInventory(InventoryItem item, int slotNum)
+    public void LoadIntoInventory(Item item, int slotNum = -1)
     {
         for (int i = 0; i < inventorySlots.Length; i++)
         {
-            if (slotNum == i)
+            if (slotNum >= 0)
             {
-                Instantiate(itemPrefab, inventorySlots[i].transform).Initialize(item.myItem, inventorySlots[i]);
+                if (slotNum == i)
+                {
+                    Instantiate(itemPrefab, inventorySlots[i].transform).Initialize(item, inventorySlots[i]);
+                    break;
+                }
+            }
+            else if (slotNum == -1)
+            {
+                SpawnInventoryItem(item);
             }
         }
     }
 
-    public List<InventoryItem> SaveItemFromInventory()
+    public List<Item> SaveItemFromInventory()
     {
-        List<InventoryItem> invItems = new List<InventoryItem>();
+        List<Item> invItems = new List<Item>();
         for (int i = 0;i < inventorySlots.Length;i++)
         {
             if (inventorySlots[i].myItem != null)
             {
-                invItems.Add(inventorySlots[i].myItem);
+                if (inventorySlots[i].myItem.myItem != null)
+                {
+                    invItems.Add(inventorySlots[i].myItem.myItem);
+                }
             }
         }
         return invItems;

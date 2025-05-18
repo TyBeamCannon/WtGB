@@ -53,6 +53,8 @@ namespace DPUtils.Systems.DateTime
             {
                 currentTimeBetweenTicks = 0;
                 Tick();
+                GameManager.instance.Hour = hour;
+                GameManager.instance.Minute = minutes;
             }
         }
 

@@ -36,7 +36,7 @@ public class ShopSlot : MonoBehaviour
 
     public void BuyItem()
     {
-        if (GameManager.instance.GoldCount > item.buyPrice)
+        if (GameManager.instance.GoldCount >= item.buyPrice)
         {
             ShopManager.instance.GivePlayerItem(item);
         }
@@ -45,7 +45,6 @@ public class ShopSlot : MonoBehaviour
     public void SellItem()
     {
         ShopManager.instance.SellItem(item);
-        GameManager.instance.GoldCount += item.sellPrice;
         Destroy(gameObject);
     }
 }

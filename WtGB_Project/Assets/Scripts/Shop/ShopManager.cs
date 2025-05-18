@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
@@ -10,23 +11,32 @@ public class ShopManager : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] GameObject buyContent;
     [SerializeField] GameObject sellContent;
+    [SerializeField] Text goldCount;
     [SerializeField] ShopSlot buyObjectPrefab;
     [SerializeField] ShopSlot sellButtonPrefab;
 
+    [SerializeField] GameObject shopUI;
+
     [Header("Items")]
+    [SerializeField] InventoryItem itemPrefab;
+
     [SerializeField] List<Item> shopItemsOg;
 
     [SerializeField] public List<Item> playerItems;
     [SerializeField] public List<Item> shopItems;
 
+    bool shopUIOpen;
+
     private void Start()
     {
+        goldCount.text = GameManager.instance.GoldCount.ToString();
+
         if (instance == null)
             instance = this;
 
         ResetShop();
 
-        for (int i = 0; i < shopItemsOg.Count; i++)
+        for (int i = 0; i < shopItems.Count; i++)
         {
             buyObjectPrefab.Initialize(shopItemsOg[i]);
             Instantiate(buyObjectPrefab, buyContent.transform);
@@ -35,16 +45,16 @@ public class ShopManager : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < playerItems.Count; i++)
+        if (Input.GetKeyDown(KeyCode.Escape) && shopUIOpen)
         {
-                    
+            CloseShopUI();
         }
     }
 
     public void ResetShop()
     {
         shopItems.Clear();
-        shopItems = shopItemsOg;
+        shopItems = new List<Item>(shopItemsOg);
     }
 
     public void GivePlayerItem(Item item)
@@ -54,12 +64,50 @@ public class ShopManager : MonoBehaviour
             playerItems.Add(item);
             sellButtonPrefab.Initialize(item);
             Instantiate(sellButtonPrefab, sellContent.transform);
+            GameManager.instance.GoldCount -= item.buyPrice;
         }
+
+        goldCount.text = GameManager.instance.GoldCount.ToString();
     }
 
     public void SellItem(Item item)
     {
         playerItems.Remove(item);
         shopItems.Add(item);
+        GameManager.instance.GoldCount += item.sellPrice;
+
+        goldCount.text = GameManager.instance.GoldCount.ToString();
+    }
+
+    public void OpenShopUI()
+    {
+        shopUIOpen = true;
+        shopUI.SetActive(true);
+
+        goldCount.text = GameManager.instance.GoldCount.ToString();
+
+        
+    }
+
+    public void CloseShopUI()
+    {
+        Debug.Log("Player items in shop: " + playerItems.Count);
+        if (shopUIOpen)
+        {
+            shopUIOpen = false;
+
+            shopUI.SetActive(false);
+
+
+            GameManager.instance.InventoryItemSlots.Clear();
+            GameManager.instance.data.PlayerItems.Clear();
+
+            for (int k = 0; k < playerItems.Count; k++)
+            {
+                GameManager.instance.InventoryItems.Add(playerItems[k]);
+                GameManager.instance.InventoryItemSlots.Add(k);
+            }
+            Debug.Log("Transferred to GM: " + GameManager.instance.InventoryItems.Count);
+        }
     }
 }

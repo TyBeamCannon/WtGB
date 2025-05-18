@@ -18,7 +18,7 @@ public class PlayerFarmInteraction : MonoBehaviour
     void Update()
     {
 
-        Debug.Log("PlayerFarmInteraction Update running");
+       // Debug.Log("PlayerFarmInteraction Update running");
 
         if(currentTile == null)
             return;

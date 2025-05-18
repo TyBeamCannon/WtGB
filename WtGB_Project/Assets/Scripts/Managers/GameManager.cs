@@ -10,17 +10,17 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [Header("Data Persistance")]
+    public GameManagerData data;
+
     [Header("Script Managers")]
     [SerializeField] PlayerCharacter playerScript;
-
+    [SerializeField] TimeManager timeManager;
 
     [Header("Player")]
     [SerializeField] GameObject player;
     [SerializeField] GameObject inventory;
     bool invOpen = false;
-    [SerializeField] List<InventoryItem> invItems;
-    [SerializeField] List<int> invItemSlot; 
-    [SerializeField] int goldCount;
 
     [Header("Dialogue")]
     [SerializeField] GameObject dialogueBox;
@@ -33,7 +33,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] sceneSpawnPoints;
 
 
-    public int GoldCount { get { return goldCount; } set { goldCount = value; } }
+    public int GoldCount { get { return data.GoldCount; } set { data.GoldCount = value; } }
+    public List<Item> InventoryItems { get { return data.PlayerItems; } set { data.PlayerItems = value; } }
+    public List<int> InventoryItemSlots { get { return data.InventoryItemSlots; } set { data.InventoryItemSlots = value; } }
+    public int Hour { get { return data.Hour; } set { data.Hour = value; } }
+    public int Minute { get { return data.Minute; } set { data.Minute = value; } }
 
     private void Awake()
     {
@@ -61,33 +65,43 @@ public class GameManager : MonoBehaviour
         
     }
 
-    void ResetInventory(List<InventoryItem> items)
+    public void ResetInventory(List<InventoryItem> items)
     {
-        invItems.Clear();
-        invItemSlot.Clear();
+        InventoryItemSlots.Clear();
+        InventoryItems.Clear();
 
-        invItems = items;
-        for (int i = 0; i < invItems.Count; i++)
+        for (int i = 0; i < InventoryItems.Count; i++)
         {
-            invItemSlot.Add(i);
+            InventoryItemSlots.Add(i);
         }
     }
 
     void OpenInventory()
     {
         invOpen = true;
+
         Instantiate(inventory, this.transform);
-        for (int i = 0; i < invItems.Count; i++)
+
+        foreach (InventorySlot slot in InventoryManager.instance.inventorySlots)
         {
-            InventoryManager.instance.LoadIntoInventory(invItems[i], invItemSlot[i]);
+            if (slot.myItem !=  null)
+            {
+                Destroy(slot.myItem.gameObject);
+                slot.myItem = null;
+            }
+        }
+        for (int i = 0; i < InventoryItems.Count; i++)
+        {
+            InventoryManager.instance.LoadIntoInventory(InventoryItems[i], InventoryItemSlots[i]);
         }
     }
 
     void CloseInventory()
     {
         invOpen = false;
-        invItems = InventoryManager.instance.SaveItemFromInventory();
-        invItemSlot = InventoryManager.instance.SaveItemSlotFromInventory();
+        InventoryItemSlots.Clear();
+        InventoryItemSlots = InventoryManager.instance.SaveItemSlotFromInventory();
+        InventoryItems = InventoryManager.instance.SaveItemFromInventory();
         Destroy(transform.GetChild(transform.childCount - 1).gameObject);
     }
 

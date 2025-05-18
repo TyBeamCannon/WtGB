@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 755d3d6ecab48604ca15011f3cc74dbc, type: 3}
+  m_Name: Persistant Data
+  m_EditorClassIdentifier: 
+  goldCount: 9188
+  playerItems:
+  - {fileID: 11400000, guid: 93076b2edf4fbf942ab5603991b93ffe, type: 2}
+  - {fileID: 11400000, guid: 93076b2edf4fbf942ab5603991b93ffe, type: 2}
+  - {fileID: 11400000, guid: 66944dd4a6052b046a185ef081cdfefa, type: 2}
+  inventoryItemSlots: 000000000100000002000000
+  currentStamina: 0
+  maxStamina: 0
+  hour: 0
+  minute: 0
