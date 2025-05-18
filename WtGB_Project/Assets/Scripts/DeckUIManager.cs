@@ -13,17 +13,33 @@ namespace CardStats
         public Transform deckPanel;
         public GameObject cardButtonPrefab;
         public TextMeshProUGUI deckCountText;
+        public GameObject deckMenuPanel;
+        public Button toggleDeckMenu;
 
         [SerializeField] int maxDeckSize;
 
-
+        bool isDeckMenuOpen = false;
 
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
+            toggleDeckMenu.onClick.AddListener(ToggleDeckMenu);
+            deckMenuPanel.SetActive(false);
             RenderAllCards();
             RenderDeck();
+        }
+
+        public void ToggleDeckMenu()
+        {
+            isDeckMenuOpen = !isDeckMenuOpen;
+            deckMenuPanel.SetActive(isDeckMenuOpen);
+
+            if (isDeckMenuOpen)
+            {
+                RenderAllCards();
+                RenderDeck();
+            }
         }
 
         public void RenderAllCards()
