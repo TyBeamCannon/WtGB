@@ -1,24 +1,23 @@
 using UnityEngine;
 
-public class OrePickup : MonoBehaviour
+public class CropPickup : MonoBehaviour
 {
-
-    public OreItem oreData;
+    public SeedData seedData;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if(oreData != null)
+        if (seedData != null)
         {
-            GetComponent<SpriteRenderer>().sprite = oreData.oreIcon;
+            GetComponent<SpriteRenderer>().sprite = seedData.cropSprite;
         }
-        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
+            // Insert Inventory Logic here
             Destroy(gameObject);
         }
     }
@@ -26,6 +25,6 @@ public class OrePickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

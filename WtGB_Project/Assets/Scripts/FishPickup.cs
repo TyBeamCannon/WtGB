@@ -1,24 +1,23 @@
 using UnityEngine;
 
-public class OrePickup : MonoBehaviour
+public class FishPickup : MonoBehaviour
 {
-
-    public OreItem oreData;
+    public FishItem fishData;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if(oreData != null)
+        if(fishData != null)
         {
-            GetComponent<SpriteRenderer>().sprite = oreData.oreIcon;
+            GetComponent<SpriteRenderer>().sprite = fishData.icon;
         }
-        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
+            // Insert Inventory Logic here
             Destroy(gameObject);
         }
     }

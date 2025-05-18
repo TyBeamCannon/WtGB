@@ -1,7 +1,7 @@
 using NUnit.Framework.Internal.Filters;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewFish", menuName = "Items/Fish")]
+[CreateAssetMenu(fileName = "newFish", menuName = "Fish")]
 public class FishItem : ScriptableObject
 {
 

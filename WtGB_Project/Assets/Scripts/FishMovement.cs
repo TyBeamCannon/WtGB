@@ -9,32 +9,31 @@ public class FishMovement : MonoBehaviour
     [SerializeField] public float startX = 0f;
     [SerializeField] public float catchZoneY = -300f;
 
-    [Header("Thrash Settings")]
-    [SerializeField] public float thrashSpeed = 4f;
-    [SerializeField] public float thrashAmplitude = 1f;
-
     [Header("Scale Settings")]
     [SerializeField] public float minScale = 0.5f;
     [SerializeField] public float maxScale = 1.5f;
-
+    [SerializeField] private float mousePull = 2f;
     [SerializeField] private RectTransform catchZone;
     private RectTransform rectTrans;
-    private Vector2 startPos;
 
     [Header("Thrash AI Behavior")]
-    [SerializeField] private float lerpFrequency = 1.5f;
     [SerializeField] private float maxLerpDistance = 150f;
     [SerializeField] private float lerpSpeed = 5f;
+    [SerializeField] private float wallPullDuration = 1.5f;
+    [SerializeField] private float idleDuration = 1f;
 
-    private float timeSinceLastDecision = 0f;
-    private float targetXOffset = 0f;
+    private float stateTimer = 0f;
+    private enum FishState { Idle, Pulling }
+    private FishState currentState = FishState.Idle;
+
+    private float currentTargetX = 0f;  
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rectTrans = GetComponent<RectTransform>();
-        startPos = rectTrans.anchoredPosition;
+        rectTrans.anchoredPosition = new Vector2 (startX, startY);
     }
 
     // Update is called once per frame
@@ -44,38 +43,62 @@ public class FishMovement : MonoBehaviour
         Vector2 currentPos = rectTrans.anchoredPosition;
 
         currentPos.y -= moveSpeed * Time.unscaledDeltaTime;
-        rectTrans.anchoredPosition = currentPos;
+
 
         float distanceRatio = Mathf.InverseLerp(startY, catchZoneY, currentPos.y);
         float scale = Mathf.Lerp(minScale, maxScale, distanceRatio);
         rectTrans.localScale = Vector3.one * scale;
-          
-        if(RectOverlaps(rectTrans,catchZone))
+
+        stateTimer += Time.unscaledDeltaTime;
+
+        if (currentState == FishState.Idle)
         {
-            Debug.Log("Fish entered catchzone");
+            if (stateTimer >= idleDuration)
+            {
+                stateTimer = 0f;
+                currentState = FishState.Pulling;
+                float direction = Random.value > 0.5f ? 1f : -1f;
+                currentTargetX = direction * Random.Range(maxLerpDistance * 0.5f, maxLerpDistance);
+            }
+
+        }
+        else if (currentState == FishState.Pulling)
+        {
+            if (stateTimer >= wallPullDuration)
+            {
+                stateTimer = 0f;
+                currentState = FishState.Idle;
+                currentTargetX = 0f;
+            }
+        }
+
+
+        float baseX = Mathf.Lerp(currentPos.x, currentTargetX, Time.unscaledDeltaTime * lerpSpeed);
+
+        Vector2 fishScreenPos = RectTransformUtility.WorldToScreenPoint(Camera.main, rectTrans.localPosition);
+
+
+
+        float mouseX = Input.mousePosition.x;
+
+        Debug.DrawLine(new Vector3(mouseX, 0, 0), new Vector3(fishScreenPos.x, 0, 0), Color.red);
+
+        float distanceFromMouse = mouseX - fishScreenPos.x;
+        float pullForce = Mathf.Clamp(distanceFromMouse / 300f, -1f, 1f);
+
+        float depthFactor = Mathf.InverseLerp(startY, catchZoneY, currentPos.y);
+        float pullStrength = Mathf.Lerp(100f, 300f, depthFactor);
+
+        float finalX = baseX + (pullForce * Time.unscaledDeltaTime * pullStrength * mousePull);
+
+        currentPos.x = finalX;
+        rectTrans.anchoredPosition = currentPos;
+
+        if (RectOverlaps(rectTrans, catchZone))
+        {
             FishingMinigameManager.instance.EndFishingMinigame(true);
         }
 
-        timeSinceLastDecision += Time.unscaledDeltaTime;
-
-        if(timeSinceLastDecision >= lerpFrequency)
-        {
-            timeSinceLastDecision = 0f;
-            float direction = Random.value > 0.5f ? 1f : -1f;
-            targetXOffset = direction * Random.Range(maxLerpDistance * 0.5f, maxLerpDistance);
-        }
-
-        float currentX = rectTrans.anchoredPosition.x;
-        currentX = Mathf.Lerp(currentX, startX + targetXOffset, Time.unscaledDeltaTime * lerpSpeed);
-
-        Vector2 fishScreenPos = RectTransformUtility.WorldToScreenPoint(null, rectTrans.position);
-        float mouseX = Input.mousePosition.x;
-        float distanceFromMouse = mouseX - fishScreenPos.x;
-
-        float pullForce = Mathf.Clamp(distanceFromMouse / 300f, -1f, 1f);
-        currentX += pullForce * Time.unscaledDeltaTime * 200f;
-        currentPos.x = currentX;
-        rectTrans.anchoredPosition = currentPos;
     }
 
     private bool RectOverlaps(RectTransform a, RectTransform b)
@@ -98,7 +121,6 @@ public class FishMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hit Something??!!" + other.name);
 
         if (other.CompareTag("FishWall"))
         {

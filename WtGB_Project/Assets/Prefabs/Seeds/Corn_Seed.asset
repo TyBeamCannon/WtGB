@@ -15,4 +15,5 @@ MonoBehaviour:
   cropName: Corn
   growthTimePerStage: 2
   totalGrowthStages: 3
+  cropSprite: {fileID: -438685864, guid: bfcde57643a028641bca7a1da600b888, type: 3}
   harvetDropPrefab: {fileID: 63959741478145687, guid: 3ab70ecd1c87985409829e12baface59, type: 3}

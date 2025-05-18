@@ -4,6 +4,10 @@ public class FishingMinigameManager : MonoBehaviour
 {
     public static FishingMinigameManager instance;
 
+    [SerializeField] private GameObject fishDrop;
+    [SerializeField] private FishItem fishCaught;
+    [SerializeField] private Transform dropPoint;
+
     [Header("UI Elements")]
     public GameObject fishingUI;
 
@@ -29,11 +33,16 @@ public class FishingMinigameManager : MonoBehaviour
     {
         fishingUI.SetActive(false);
         Time.timeScale = 1f;
-        Debug.Log("Fishing minigame ended!");
 
         if(success)
         {
             Debug.Log("You Caught fish!");
+            if(fishDrop != null && fishCaught != null)
+            {
+                GameObject drop = Instantiate(fishDrop, dropPoint.position, Quaternion.identity);
+                drop.GetComponent<FishPickup>().fishData = fishCaught;
+            }
+
         }
         else
         {
