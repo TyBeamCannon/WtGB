@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +13,22 @@ public class SettingFunctions : MonoBehaviour
 
     private void Start()
     {
-        Default();
+        if (!GameManager.instance.data.SettingsInitialized)
+        {
+            Default();
+            GameManager.instance.data.SettingsInitialized = true;
+        }
+        else
+        {
+            windowToggle.isOn = GameManager.instance.WindowedMode;
+            resolutionDropdown.value = GameManager.instance.ResIndex;
+            masterSlider.value = GameManager.instance.MasterValue;
+            sfxSlider.value = GameManager.instance.SFXValue;
+            musicSlider.value = GameManager.instance.MusicValue;
+            Master();
+            Windowed();
+            Resolution();
+        }
     }
 
 
@@ -23,6 +39,7 @@ public class SettingFunctions : MonoBehaviour
 #else
         Screen.fullScreen = !windowToggle.isOn;
 #endif
+        GameManager.instance.data.WindowedMode = !windowToggle.isOn;
     }
 
     public void Resolution()
@@ -50,12 +67,14 @@ public class SettingFunctions : MonoBehaviour
                     break;
                 }
         }
+        GameManager.instance.ResIndex = resolutionDropdown.value;
     }
 
     public void Master()
     {
         Sfx();
         Music();
+        GameManager.instance.MasterValue = masterSlider.value;
     }
 
     public void Sfx()
@@ -68,6 +87,7 @@ public class SettingFunctions : MonoBehaviour
                     audSource.volume = sfxSlider.value * masterSlider.value;
                 }
             }
+            GameManager.instance.SFXValue = sfxSlider.value;
     }
 
     public void Music()
@@ -79,6 +99,7 @@ public class SettingFunctions : MonoBehaviour
                 audSource.volume = musicSlider.value * masterSlider.value;
             }
         }
+        GameManager.instance.MusicValue = musicSlider.value;
     }
 
     public void Default()

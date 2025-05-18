@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public bool inMainMenu;
+
     [Header("Data Persistance")]
     public GameManagerData data;
 
@@ -32,7 +34,11 @@ public class GameManager : MonoBehaviour
     [Header("Level")]
     [SerializeField] GameObject[] sceneSpawnPoints;
 
-
+    public bool WindowedMode { get { return data.WindowedMode; } set {  data.WindowedMode = value; } }
+    public int ResIndex { get { return data.ResIndex; } set { data.ResIndex = value; } }
+    public float MasterValue { get { return data.MasterValue; } set { data.MasterValue = value; } }
+    public float SFXValue { get { return data.SFXValue; } set { data.SFXValue = value; } }
+    public float MusicValue { get { return data.MusicValue;  } set { data.MusicValue = value; } }
     public int GoldCount { get { return data.GoldCount; } set { data.GoldCount = value; } }
     public List<Item> InventoryItems { get { return data.PlayerItems; } set { data.PlayerItems = value; } }
     public List<int> InventoryItemSlots { get { return data.InventoryItemSlots; } set { data.InventoryItemSlots = value; } }
@@ -51,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (inMainMenu == false && Input.GetKeyDown(KeyCode.Escape))
         {
             if (!invOpen && !dialogueActive)
             {
@@ -99,6 +105,7 @@ public class GameManager : MonoBehaviour
     void CloseInventory()
     {
         invOpen = false;
+        InventoryManager.instance.settingsScreen.SetActive(false);
         InventoryItemSlots.Clear();
         InventoryItemSlots = InventoryManager.instance.SaveItemSlotFromInventory();
         InventoryItems = InventoryManager.instance.SaveItemFromInventory();

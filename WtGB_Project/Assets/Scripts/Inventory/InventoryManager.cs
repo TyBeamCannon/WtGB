@@ -8,6 +8,8 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager instance;
     public static InventoryItem carriedItem;
 
+    [SerializeField] public GameObject settingsScreen;
+
     [SerializeField] public InventorySlot[] inventorySlots;
 
     [SerializeField] Transform draggablesTransform;
