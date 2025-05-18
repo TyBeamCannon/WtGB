@@ -7,6 +7,7 @@ public class ButtonFunctions : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene("MainGame");
+        GameManager.instance.inMainMenu = false;
     }
 
     public void Settings()
@@ -35,5 +36,10 @@ public class ButtonFunctions : MonoBehaviour
     public void ContinueDialogue()
     {
         DialogueManager.instance.DisplayNextDialogueLine();
+    }
+
+    public void SwapInvSettings()
+    {
+        InventoryManager.instance.settingsScreen.SetActive(!InventoryManager.instance.settingsScreen.activeSelf);
     }
 }

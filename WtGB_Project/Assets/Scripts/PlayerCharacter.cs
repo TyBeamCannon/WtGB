@@ -74,7 +74,7 @@ public class PlayerCharacter : MonoBehaviour
             isSprinting = true;
         }else if (Input.GetButtonUp("Sprint"))
         {
-            moveSpeed /= sprintMod;
+            moveSpeed -= sprintMod;
             isSprinting = false;
         }
     }

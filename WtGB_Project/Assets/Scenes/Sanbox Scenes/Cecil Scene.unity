@@ -158,7 +158,7 @@ MonoBehaviour:
   gravity: 15
   jumpMax: 1
   jumpSpeed: 5
-  sprintMod: 5
+  sprintMod: 10
   fatigueManager: {fileID: 0}
   controller: {fileID: 309245239}
 --- !u!136 &309245235
@@ -246,7 +246,7 @@ Transform:
   m_GameObject: {fileID: 309245233}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1.096, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -490,7 +490,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1099185832}
-  - component: {fileID: 1099185831}
   m_Layer: 0
   m_Name: DeckManager
   m_TagString: Untagged
@@ -498,26 +497,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1099185831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099185830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04af0d420e88ffd45a7dcbe5d29ea89f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerDeck: {fileID: 0}
-  allCardsPanel: {fileID: 0}
-  deckPanel: {fileID: 0}
-  cardButtonPrefab: {fileID: 0}
-  deckCountText: {fileID: 0}
-  deckMenuPanel: {fileID: 0}
-  toggleDeckMenu: {fileID: 0}
-  maxDeckSize: 0
 --- !u!4 &1099185832
 Transform:
   m_ObjectHideFlags: 0

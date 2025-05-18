@@ -1,11 +1,21 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu]
 
 public class GameManagerData : ScriptableObject
 {
+	[SerializeField] bool settingsInitailized;
+
+	[SerializeField] bool windowedMode;
+	[SerializeField] int resIndex;
+	[SerializeField] float masterValue;
+	[SerializeField] float sfxValue;
+	[SerializeField] float musicValue;
+
+
 	[SerializeField] int goldCount;
 	[SerializeField] List<Item> playerItems;
 	[SerializeField] List<int> inventoryItemSlots;
@@ -13,6 +23,47 @@ public class GameManagerData : ScriptableObject
 	[SerializeField] int maxStamina;
 	[SerializeField] int hour;
 	[SerializeField] int minute;
+
+    void Start()
+    {
+		settingsInitailized = false;
+    }
+
+    public bool SettingsInitialized
+	{
+		get { return settingsInitailized; }
+		set { settingsInitailized = value; }
+	}
+
+	public bool WindowedMode
+	{
+		get { return windowedMode; }
+		set { windowedMode = value; }
+	}
+
+	public int ResIndex
+	{
+		get { return resIndex; }
+		set { resIndex = value; }
+	}
+
+	public float MasterValue
+	{
+		get { return masterValue; }
+		set {  masterValue = value; }
+	}
+
+	public float SFXValue
+	{
+		get { return sfxValue; }
+		set { sfxValue = value; }
+	}
+
+	public float MusicValue
+	{
+		get { return musicValue; }
+		set { musicValue = value; }
+	}
 
 	public int GoldCount
 	{
