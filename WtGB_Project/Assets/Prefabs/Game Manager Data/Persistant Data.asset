@@ -13,17 +13,14 @@ MonoBehaviour:
   m_Name: Persistant Data
   m_EditorClassIdentifier: 
   settingsInitailized: 1
-  windowedMode: 1
+  windowedMode: 0
   resIndex: 1
   masterValue: 0.4673183
   sfxValue: 0
   musicValue: 0
   goldCount: 0
-  playerItems:
-  - {fileID: 11400000, guid: 93076b2edf4fbf942ab5603991b93ffe, type: 2}
-  - {fileID: 11400000, guid: 93076b2edf4fbf942ab5603991b93ffe, type: 2}
-  - {fileID: 11400000, guid: 93076b2edf4fbf942ab5603991b93ffe, type: 2}
-  inventoryItemSlots: 000000000d0000001f000000
+  playerItems: []
+  inventoryItemSlots: 
   currentStamina: 0
   maxStamina: 0
   hour: 0

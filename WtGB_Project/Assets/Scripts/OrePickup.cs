@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class OrePickup : MonoBehaviour
 {
-
+    public Item ore;
     public OreItem oreData;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,6 +19,7 @@ public class OrePickup : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            GameManager.instance.InventoryItems.Add(ore);
             Destroy(gameObject);
         }
     }

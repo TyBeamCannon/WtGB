@@ -3,6 +3,7 @@ using UnityEngine;
 public class CropPickup : MonoBehaviour
 {
     public SeedData seedData;
+    public Item crop;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,7 +18,7 @@ public class CropPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Insert Inventory Logic here
+            GameManager.instance.InventoryItems.Add(crop);
             Destroy(gameObject);
         }
     }

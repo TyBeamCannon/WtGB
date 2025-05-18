@@ -3,6 +3,7 @@ using UnityEngine;
 public class FishPickup : MonoBehaviour
 {
     public FishItem fishData;
+    public Item fish;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,6 +19,7 @@ public class FishPickup : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             // Insert Inventory Logic here
+            GameManager.instance.InventoryItems.Add(fish);
             Destroy(gameObject);
         }
     }

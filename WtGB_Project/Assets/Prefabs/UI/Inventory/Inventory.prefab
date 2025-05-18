@@ -3569,7 +3569,8 @@ MonoBehaviour:
   - {fileID: 8095981966936010917}
   draggablesTransform: {fileID: 1850873779781469462}
   itemPrefab: {fileID: 4662989860232831083, guid: 14ffbcf15e7e4604ab9d9168b641d3d5, type: 3}
-  items: []
+  items:
+  - {fileID: 0}
   giveItemBtn: {fileID: 5884479518588276964}
 --- !u!1 &4502042182873564042
 GameObject:
