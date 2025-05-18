@@ -10,14 +10,19 @@ public class FishingTrigger : MonoBehaviour
     [SerializeField] public float minBiteTime = 2f;
     [SerializeField] public float maxBiteTime = 5f;
 
+    //Reference to the fatigue manager
+    [SerializeField] private FatigueManager fatigueManager;    
+    
 
     // Update is called once per frame
     void Update()
     {
         if(playerInZone && !isFishing && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Pressed E to start fishing!");
-            StartCoroutine(HandleFishing());
+            if (fatigueManager.UseStamina(4))
+            {
+                StartCoroutine(HandleFishing());
+            }
         }
     }
 

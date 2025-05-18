@@ -10,7 +10,7 @@ public class OrePickup : MonoBehaviour
     {
         if(oreData != null)
         {
-            GetComponent<SpriteRenderer>().sprite = oreData.icon;
+            GetComponent<SpriteRenderer>().sprite = oreData.oreIcon;
         }
         
     }
@@ -19,7 +19,7 @@ public class OrePickup : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log($"Picked up: {oreData.oreName}! Sells for {oreData.sellPrice} coins.");
+            Debug.Log($"Picked up: {oreData.nameOfOre}! Sells for {oreData.oreSellPrice} coins.");
             Destroy(gameObject);
         }
     }
