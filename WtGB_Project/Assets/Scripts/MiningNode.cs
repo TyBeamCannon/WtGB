@@ -3,7 +3,7 @@ using UnityEngine;
 public class MiningNode : MonoBehaviour
 {
     [Header("Ore Data")]
-    [SerializeField] private int hitsToBreak = 3;
+    [SerializeField] private int hitsTillBreak = 3;
     [SerializeField] private GameObject oreDropPrefab;
     [SerializeField] private OreItem oreData;
     [SerializeField] private Vector3 dropOffset = Vector3.up;
@@ -14,7 +14,7 @@ public class MiningNode : MonoBehaviour
     {
         currentHits++;
 
-        if(currentHits >= hitsToBreak )
+        if(currentHits >= hitsTillBreak )
         {
             BreakNode();
         }

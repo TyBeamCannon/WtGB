@@ -4,9 +4,9 @@ using UnityEngine;
 public class OreItem : ScriptableObject
 {
 
-    public string oreName;
-    public Sprite icon;
-    public int sellPrice;
-    public string description;
+    public string nameOfOre;
+    public Sprite oreIcon;
+    public int oreSellPrice;
+    public string oreDescription;
 
 }

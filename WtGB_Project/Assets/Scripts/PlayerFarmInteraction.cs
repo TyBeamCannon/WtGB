@@ -7,6 +7,8 @@ public class PlayerFarmInteraction : MonoBehaviour
     private FarmTile currentTile;
     public SeedData seedToPlant;
 
+    //Reference to the fatigue manager
+    [SerializeField] private FatigueManager fatigueManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,25 +34,37 @@ public class PlayerFarmInteraction : MonoBehaviour
 
             if(!currentTile.IsTilled())
             {
-                currentTile.Till();
+                if(fatigueManager.UseStamina(5))
+                {
+                    currentTile.Till();
+                }
                 return;
             }
 
             if(!currentTile.IsPlanted())
             {
-                currentTile.Plant(seedToPlant);
+                if(fatigueManager.UseStamina(3))
+                {
+                    currentTile.Plant(seedToPlant);
+                }
                 return;
             }
 
             if(!currentTile.IsWatered() && !currentTile.IsFullyGrown())
             {
-                currentTile.Water();
+                if(fatigueManager.UseStamina(2))
+                {
+                    currentTile.Water();
+                }
                 return;
             }
 
             if(currentTile.IsFullyGrown())
             {
-                currentTile.Harvest();
+                if(fatigueManager.UseStamina(4))
+                {
+                    currentTile.Harvest();
+                }
             }
         }
     }

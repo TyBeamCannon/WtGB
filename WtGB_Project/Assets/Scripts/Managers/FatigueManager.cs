@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class FatigueManager : MonoBehaviour
 {
@@ -13,13 +15,17 @@ public class FatigueManager : MonoBehaviour
 
     [SerializeField] float regenTimer = 0f;
     [SerializeField] bool restedToday = true;
+
+    [SerializeField] private Slider staminaSlider;
  
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+       
         maxStamina = fullStaminaCap;
         currentStamina = maxStamina;
+        UpdateStaminaUI();
     }
 
     // Update is called once per frame
@@ -38,6 +44,7 @@ public class FatigueManager : MonoBehaviour
                 currentStamina += regenAmount;
                 currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
                 regenTimer = 0f;
+                UpdateStaminaUI();
             }
         }
     }
@@ -48,6 +55,7 @@ public class FatigueManager : MonoBehaviour
         {
             currentStamina -= amount;
             currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+            UpdateStaminaUI();
             return true;
         }
         else
@@ -74,6 +82,15 @@ public class FatigueManager : MonoBehaviour
         restedToday = true;
         maxStamina = fullStaminaCap;
         currentStamina = maxStamina;
+        UpdateStaminaUI() ;
+    }
+
+    private void UpdateStaminaUI()
+    {
+        if(staminaSlider != null)
+        {
+            staminaSlider.value = (float)currentStamina / maxStamina;
+        }
     }
 
 }
