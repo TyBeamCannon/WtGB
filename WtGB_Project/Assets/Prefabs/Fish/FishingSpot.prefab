@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3054541489014786728}
   - component: {fileID: 5750720416577795006}
   - component: {fileID: 2677409138517487978}
+  - component: {fileID: 948205813006592782}
   m_Layer: 0
   m_Name: FishingSpot
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.88, y: 0.25, z: -1.26}
-  m_LocalScale: {x: 1.09, y: 1, z: 0.85}
+  m_LocalScale: {x: 1.2, y: 1, z: 0.25999993}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -49,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minBiteTime: 2
   maxBiteTime: 5
+  fatigueManager: {fileID: 0}
 --- !u!33 &3054541489014786728
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -121,5 +123,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 11.614143, y: 1.26, z: 12.493324}
-  m_Center: {x: -0.22346689, y: 1.110223e-16, z: 0.1372197}
+  m_Size: {x: 10.051643, y: 1.26, z: 12.493324}
+  m_Center: {x: -0.06721616, y: 0, z: 0.13721952}
+--- !u!208 &948205813006592782
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4810417024367504890}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 0.00001, z: 5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

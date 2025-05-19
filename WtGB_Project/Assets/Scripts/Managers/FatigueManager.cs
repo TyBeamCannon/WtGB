@@ -71,10 +71,13 @@ public class FatigueManager : MonoBehaviour
         {
             maxStamina -= fatigueLossPerDay;
             maxStamina = Mathf.Clamp(maxStamina, minStaminaFloor, fullStaminaCap);
+            currentStamina = maxStamina;
+            UpdateStaminaUI();
         }
 
         restedToday = false;
         currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+        UpdateStaminaUI();
     }
 
     public void RestoreStamina()
