@@ -13,6 +13,12 @@ public class SettingFunctions : MonoBehaviour
 
     private void Start()
     {
+        if (GameManager.instance == null || GameManager.instance.data == null)
+        {
+            Debug.LogWarning("GameManager or GameManager.data is missing!");
+            return;
+        }
+
         if (!GameManager.instance.data.SettingsInitialized)
         {
             Default();
@@ -37,9 +43,13 @@ public class SettingFunctions : MonoBehaviour
 #if UNITY_EDITOR
         Debug.Log("Windowed = " + windowToggle.isOn.ToString());
 #else
-        Screen.fullScreen = !windowToggle.isOn;
+    Screen.fullScreen = !windowToggle.isOn;
 #endif
-        GameManager.instance.data.WindowedMode = !windowToggle.isOn;
+
+        if (GameManager.instance != null && GameManager.instance.data != null)
+        {
+            GameManager.instance.data.WindowedMode = !windowToggle.isOn;
+        }
     }
 
     public void Resolution()

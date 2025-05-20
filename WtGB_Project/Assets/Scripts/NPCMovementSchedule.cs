@@ -2,6 +2,7 @@ using DPUtils.Systems.DateTime;
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Apple;
 
 [System.Serializable]
 public class NPCSchedule
@@ -21,6 +22,7 @@ public class NPCMovementSchedule : MonoBehaviour
     {
         mover = GetComponent<NPCMovement>();
         TimeManager.OnDateTimeChanged += CheckSchedule;
+
     }
     
     private void CheckSchedule(DateTime currentTime)
