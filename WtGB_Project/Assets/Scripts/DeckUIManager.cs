@@ -10,11 +10,12 @@ namespace CardStats
         public PlayerDeck playerDeck;
 
         public Transform allCardsPanel;
-        public Transform deckPanel;
+        public Transform DeckPanel;
         public GameObject cardButtonPrefab;
         public TextMeshProUGUI deckCountText;
         public GameObject deckMenuPanel;
         public Button toggleDeckMenu;
+        public Button openDeckButton;
 
         [SerializeField] int maxDeckSize;
 
@@ -24,11 +25,14 @@ namespace CardStats
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
+
             toggleDeckMenu.onClick.AddListener(ToggleDeckMenu);
+            openDeckButton.onClick.AddListener(OpenDeck);
             deckMenuPanel.SetActive(false);
             RenderAllCards();
             RenderDeck();
-        }
+        }    
+    
 
         public void ToggleDeckMenu()
         {
@@ -38,6 +42,17 @@ namespace CardStats
             if (isDeckMenuOpen)
             {
                 RenderAllCards();
+                RenderDeck();
+            }
+        }
+
+        public void OpenDeck()
+        {
+            Debug.Log("OpenDeck is triggered");
+
+            if (!DeckPanel.gameObject.activeSelf)
+            {
+                DeckPanel.gameObject.SetActive(true);
                 RenderDeck();
             }
         }
@@ -64,7 +79,7 @@ namespace CardStats
 
         public void RenderDeck()
         {
-            foreach (Transform child in deckPanel)
+            foreach (Transform child in DeckPanel)
                 Destroy(child.gameObject);
 
             foreach (var card in playerDeck.allCards)
