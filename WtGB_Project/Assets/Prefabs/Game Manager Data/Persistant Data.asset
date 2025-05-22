@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Persistant Data
   m_EditorClassIdentifier: 
   settingsInitailized: 1
-  windowedMode: 0
+  windowedMode: 1
   resIndex: 1
-  masterValue: 0.4673183
+  masterValue: 0.213
   sfxValue: 0
   musicValue: 0
   goldCount: 0
