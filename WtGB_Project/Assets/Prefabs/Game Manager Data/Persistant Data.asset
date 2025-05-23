@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsInitailized: 1
   windowedMode: 1
-  resIndex: 1
-  masterValue: 0.213
-  sfxValue: 0
-  musicValue: 0
+  resIndex: 2
+  masterValue: 1
+  sfxValue: 1
+  musicValue: 1
   goldCount: 0
   playerItems: []
   inventoryItemSlots: 

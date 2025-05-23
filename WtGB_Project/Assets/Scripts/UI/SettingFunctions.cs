@@ -16,6 +16,7 @@ public class SettingFunctions : MonoBehaviour
     [SerializeField] AudioClip sliderSliding;
     [SerializeField] AudioClip sliderSelect;
     [SerializeField] AudioClip sliderDeselect;
+    [SerializeField] AudioClip buttonClick;
 
     [Header("Settings Adjusters")]
     [SerializeField] Toggle windowToggle;
@@ -73,7 +74,10 @@ public class SettingFunctions : MonoBehaviour
             sfx.PlayOneShot(checkboxOn);
         }
 
-            GameManager.instance.data.WindowedMode = !windowToggle.isOn;
+        if (windowToggle != null && GameManager.instance != null)
+        {
+            GameManager.instance.WindowedMode = windowToggle.isOn;
+        }
     }
 
     public void Resolution()
@@ -220,5 +224,10 @@ public class SettingFunctions : MonoBehaviour
     public void SliderDeselect()
     {
         sfx.PlayOneShot(sliderDeselect);
+    }
+
+    public void ButtonClick()
+    {
+        sfx.PlayOneShot(buttonClick);
     }
 }

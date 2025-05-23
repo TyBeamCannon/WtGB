@@ -9,6 +9,8 @@ TagManager:
   - FishWall
   - Music
   - SFX
+  - Resolution
+  - ResText
   layers:
   - Default
   - TransparentFX
