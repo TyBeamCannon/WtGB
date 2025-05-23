@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 97d7847023345b849bb2c97032c1a3a0
+guid: e421708ff1df0704f84eddb46212cbf9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,15 +97,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button Sign_0
+      name: Button Sign_1
       rect:
         serializedVersion: 2
         x: 72
         y: 287
         width: 890
         height: 324
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.15901366, y: 0.7952613}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -132,8 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Button Sign_0: 1053958568
-      Button Sign_1: 1273730533
+      Button Sign_1: 1053958568
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

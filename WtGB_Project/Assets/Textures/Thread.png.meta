@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 97d7847023345b849bb2c97032c1a3a0
+guid: 91db87828fab0954385ea7656818d841
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button Sign_0
+      name: Thread_0
       rect:
         serializedVersion: 2
-        x: 72
-        y: 287
-        width: 890
-        height: 324
+        x: 42
+        y: 468
+        width: 943
+        height: 84
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cad8514b21a0b1745b272bc3f283d26f
-      internalID: 1053958568
+      spriteID: 313232d0b6ec0094abab7107caf25b2d
+      internalID: 494008690
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3f87023537415324997ed17855a8656e
+    spriteID: e9f0123274029ab468ac2d9ec17e2916
     internalID: 0
     vertices: []
     indices: 
@@ -132,8 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Button Sign_0: 1053958568
-      Button Sign_1: 1273730533
+      Thread_0: 494008690
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,15 +1,31 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.UI;
 
 public class SettingFunctions : MonoBehaviour
 {
+    [Header("SFX Audio Source")]
+    [SerializeField] AudioSource sfx;
+
+    [Header("Audio Clips")]
+    [SerializeField] AudioClip resetDefault;
+    [SerializeField] AudioClip checkboxOn;
+    [SerializeField] AudioClip checkboxOff;
+    [SerializeField] AudioClip sliderSliding;
+    [SerializeField] AudioClip sliderSelect;
+    [SerializeField] AudioClip sliderDeselect;
+
+    [Header("Settings Adjusters")]
     [SerializeField] Toggle windowToggle;
     [SerializeField] TMP_Dropdown resolutionDropdown;
     [SerializeField] Slider masterSlider;
     [SerializeField] Slider sfxSlider;
     [SerializeField] Slider musicSlider;
+    [SerializeField] GameObject defaultButton;
+
+    bool defaultBroke;
 
     private void Start()
     {
@@ -37,23 +53,35 @@ public class SettingFunctions : MonoBehaviour
         }
     }
 
-
     public void Windowed()
     {
+        if (!defaultBroke)
+        {
+            BreakDefaultButton();
+        }
 #if UNITY_EDITOR
         Debug.Log("Windowed = " + windowToggle.isOn.ToString());
 #else
     Screen.fullScreen = !windowToggle.isOn;
 #endif
-
-        if (GameManager.instance != null && GameManager.instance.data != null)
+        if (!windowToggle.isOn)
         {
-            GameManager.instance.data.WindowedMode = !windowToggle.isOn;
+            sfx.PlayOneShot(checkboxOff);
         }
+        else
+        {
+            sfx.PlayOneShot(checkboxOn);
+        }
+
+            GameManager.instance.data.WindowedMode = !windowToggle.isOn;
     }
 
     public void Resolution()
     {
+        if (!defaultBroke)
+        {
+            BreakDefaultButton();
+        }
         switch (resolutionDropdown.value)
         {
             case 0:
@@ -82,26 +110,63 @@ public class SettingFunctions : MonoBehaviour
 
     public void Master()
     {
-        Sfx();
-        Music();
+        if (!defaultBroke)
+        {
+            BreakDefaultButton();
+        }
+        if (!sfx.isPlaying)
+        {
+            sfx.PlayOneShot(sliderSliding);
+        }
+        foreach (AudioSource audSource in AudioSource.FindObjectsByType<AudioSource>(FindObjectsSortMode.None))
+        {
+            if (audSource.tag == "SFX")
+            {
+                audSource.volume = sfxSlider.value * masterSlider.value;
+            }
+        }
+        foreach (AudioSource audSource in AudioSource.FindObjectsByType<AudioSource>(FindObjectsSortMode.None))
+        {
+            if (audSource.tag == "Music")
+            {
+                audSource.volume = musicSlider.value * masterSlider.value;
+            }
+        }
         GameManager.instance.MasterValue = masterSlider.value;
+        GameManager.instance.SFXValue = sfxSlider.value;
+        GameManager.instance.MusicValue = musicSlider.value;
     }
 
     public void Sfx()
     {
-        
-            foreach (AudioSource audSource in AudioSource.FindObjectsByType<AudioSource>(FindObjectsSortMode.None))
+        if (!defaultBroke)
+        {
+            BreakDefaultButton();
+        }
+        if (!sfx.isPlaying)
+        {
+            sfx.PlayOneShot(sliderSliding);
+        }
+        foreach (AudioSource audSource in AudioSource.FindObjectsByType<AudioSource>(FindObjectsSortMode.None))
+        {
+            if (audSource.tag == "SFX")
             {
-                if (audSource.tag == "SFX")
-                {
-                    audSource.volume = sfxSlider.value * masterSlider.value;
-                }
+                audSource.volume = sfxSlider.value * masterSlider.value;
             }
-            GameManager.instance.SFXValue = sfxSlider.value;
+        }
+        GameManager.instance.SFXValue = sfxSlider.value;
     }
 
     public void Music()
     {
+        if (!defaultBroke)
+        {
+            BreakDefaultButton();
+        }
+        if (!sfx.isPlaying)
+        {
+            sfx.PlayOneShot(sliderSliding);
+        }
         foreach (AudioSource audSource in AudioSource.FindObjectsByType<AudioSource>(FindObjectsSortMode.None))
         {
             if (audSource.tag == "Music")
@@ -114,13 +179,46 @@ public class SettingFunctions : MonoBehaviour
 
     public void Default()
     {
-        masterSlider.value = 1;
-        sfxSlider.value = 1;
-        musicSlider.value = 1;
-        Master();
-        windowToggle.isOn = false;
-        Windowed();
-        resolutionDropdown.value = 1;
-        Resolution();
+        if (defaultBroke)
+        {
+            masterSlider.value = 1;
+            sfxSlider.value = 1;
+            musicSlider.value = 1;
+            Master();
+            windowToggle.isOn = false;
+            Windowed();
+            resolutionDropdown.value = 2;
+            Resolution();
+            FixDefaultButton();
+        }
+    }
+
+    void FixDefaultButton()
+    {
+        if (defaultBroke)
+        {
+            defaultBroke = false;
+            defaultButton.GetComponent<RectTransform>().localEulerAngles = new Vector3(0, 0, 0);
+            sfx.PlayOneShot(resetDefault);
+        }
+    }
+
+    void BreakDefaultButton()
+    {
+        if (!defaultBroke)
+        {
+            defaultBroke = true;
+            defaultButton.GetComponent<RectTransform>().localEulerAngles = new Vector3(0, 0, -15);
+        }
+    }
+
+    public void SliderSelect()
+    {
+        sfx.PlayOneShot(sliderSelect);
+    }
+
+    public void SliderDeselect()
+    {
+        sfx.PlayOneShot(sliderDeselect);
     }
 }
