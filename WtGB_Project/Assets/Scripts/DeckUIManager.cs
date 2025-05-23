@@ -8,14 +8,13 @@ namespace CardStats
     public class DeckUIManager : MonoBehaviour
     {
         public PlayerDeck playerDeck;
-
-        public Transform allCardsPanel;
-        public Transform DeckPanel;
-        public GameObject cardButtonPrefab;
+        public Transform deckPanel;
+        public Button cardButtonPrefab;
+        public Button openDeckButton;
         public TextMeshProUGUI deckCountText;
         public GameObject deckMenuPanel;
-        public Button toggleDeckMenu;
-        public Button openDeckButton;
+
+        public Button[] cardSlotButtons;
 
         [SerializeField] int maxDeckSize;
 
@@ -25,85 +24,81 @@ namespace CardStats
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
+            if (openDeckButton != null)
+                openDeckButton.onClick.AddListener(ToggleDeckMenu);
 
-            toggleDeckMenu.onClick.AddListener(ToggleDeckMenu);
-            openDeckButton.onClick.AddListener(OpenDeck);
-            deckMenuPanel.SetActive(false);
-            RenderAllCards();
-            RenderDeck();
+            if (deckMenuPanel != null)
+                deckMenuPanel.SetActive(false);
+
+            for(int i = 0; i < cardSlotButtons.Length; i++)
+            {
+                int index = i;
+                cardSlotButtons[i].onClick.AddListener(() => OnCardSlotClicked(index));
+            }
         }    
+
+        void OnCardSlotClicked(int index)
+        {
+            Debug.Log($"Card Slot {index} clicked!");
+        }
     
 
         public void ToggleDeckMenu()
         {
             isDeckMenuOpen = !isDeckMenuOpen;
-            deckMenuPanel.SetActive(isDeckMenuOpen);
+
+            if (deckMenuPanel != null)
+                deckMenuPanel.SetActive(isDeckMenuOpen);
 
             if (isDeckMenuOpen)
-            {
-                RenderAllCards();
                 RenderDeck();
-            }
         }
-
-        public void OpenDeck()
-        {
-            Debug.Log("OpenDeck is triggered");
-
-            if (!DeckPanel.gameObject.activeSelf)
-            {
-                DeckPanel.gameObject.SetActive(true);
-                RenderDeck();
-            }
-        }
+  
 
         public void RenderAllCards()
         {
-            foreach (Transform child in allCardsPanel)
-                Destroy(child.gameObject);
-
-            foreach (var card in playerDeck.allCards)
+           if(deckPanel == null || cardButtonPrefab == null || deckCountText == null || playerDeck == null)
             {
-                var localCard = card;
-                GameObject btn = Instantiate(cardButtonPrefab, allCardsPanel);
-                TextMeshProUGUI label = btn.GetComponentInChildren<TextMeshProUGUI>();
-                if (label != null)
-                    label.text = localCard.cardName;
-
-                Button button = btn.GetComponent<Button>();
-                if (button != null)
-                    button.onClick.AddListener(() => RemoveFromDeck(localCard));
-
+                Debug.LogError("DeckUIUManager: one or more references are not assigned in the inspector");
+                return;
             }
-        }
 
-        public void RenderDeck()
-        {
-            foreach (Transform child in DeckPanel)
+            foreach (Transform child in deckPanel)
                 Destroy(child.gameObject);
 
-            foreach (var card in playerDeck.allCards)
+            for(int i = 0; i < playerDeck.deck.Count; i++)
             {
-                var localCard = card;
-                GameObject btn = Instantiate(cardButtonPrefab, allCardsPanel);
+                var localCard = playerDeck.deck[i];
+                Button btn = Instantiate(cardButtonPrefab, deckPanel);
                 TextMeshProUGUI label = btn.GetComponentInChildren<TextMeshProUGUI>();
-                if (label != null)
+                if(label != null)
+                {
                     label.text = localCard.cardName;
+                }
 
                 Button button = btn.GetComponent<Button>();
-                if (button != null)
+                int index = i;
+                if(button != null)
+                {
                     button.onClick.AddListener(() => RemoveFromDeck(localCard));
-
-
+                }
             }
 
             deckCountText.text = $"Deck: {playerDeck.deck.Count}/{maxDeckSize}";
         }
 
+        public void RenderDeck()
+        {
+           if(deckPanel == null || cardButtonPrefab == null || deckCountText == null || playerDeck == null)
+            {
+                Debug.LogError("DeckUIUManager: one or more references are not assigned in the inspector");
+                return;
+            }
+        }
+
         public void AddToDeck(Card card)
         {
-            if (playerDeck.deck.Count >= maxDeckSize) return;
-            if (!playerDeck.deck.Contains(card))
+            if (playerDeck.deck.Count >= maxDeckSize || playerDeck.deck.Contains(card)) return;          
             {
                 playerDeck.deck.Add(card);
                 RenderDeck();
@@ -119,11 +114,23 @@ namespace CardStats
             }
         }
 
-        public void SaveLineUp()
+        public void ShuffleDeck()
         {
-            playerDeck.SetLineup(new List<Card>(playerDeck.deck));
-            Debug.Log("Deck lineup was saved");
+            for(int i = 0; i < playerDeck.deck.Count; i++)
+            {
+                Card temp = playerDeck.deck[i];
+                int randomIndex = Random.Range(i, playerDeck.deck.Count);
+                playerDeck.deck[i] = playerDeck.deck[randomIndex];
+                playerDeck.deck[randomIndex] = temp;
+            }
+            RenderDeck();
         }
+
+        //public void SaveLineUp()
+        //{
+        //    playerDeck.SetLineup(new List<Card>(playerDeck.deck));
+        //    Debug.Log("Deck lineup was saved");
+        //}
 
     }
 }
