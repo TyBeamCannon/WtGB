@@ -13,6 +13,7 @@ public class BossManager : MonoBehaviour
     public float cooldownTimer;
 
     public Transform player;
+    public NavMeshAgent agent;
     public Animator anim;
 
     bool isBossTurn = false;
@@ -20,7 +21,10 @@ public class BossManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        currentHealth = maxHealth;
+        anim = GetComponent<Animator>();
+        agent.GetComponent<NavMeshAgent>();
+        cooldownTimer = 0f;
     }
 
     public void StartTurn()
@@ -38,11 +42,28 @@ public class BossManager : MonoBehaviour
             state = BossState.Enraged;
             attackCooldown *= 0.75f;
         } 
-        Attack();
+        MoveToPlayer();
+    }
+
+    void MoveToPlayer()
+    {
+        if(agent != null && player != null)
+        {
+            agent.SetDestination(player.position);
+            anim.SetBool("is moving", true);
+
+            Invoke(nameof(Attack), 1.5f);
+        }
+        else
+        {
+            Attack();
+        }
     }
 
     public void Attack()
     {
+        agent.isStopped = true;
+        anim.SetBool("isMoving", false);
         anim.SetTrigger("attack");
 
         EndTurn();
@@ -63,6 +84,7 @@ public class BossManager : MonoBehaviour
     public void Die()
     {
         state = BossState.Dead;
+        if (agent) agent.isStopped = true;
         anim.SetTrigger("die");
         TurnManager.Instance.BossDied();
     }
