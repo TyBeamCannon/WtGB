@@ -1,46 +1,47 @@
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
-public enum TurnState {PlayerTurn, EnemyTurn }
+
 
 public class TurnManager : MonoBehaviour
 {
+    public static TurnManager Instance;
 
-    public TurnState currentState;
-    bool playerHasActed;
+    public enum TurnState { PlayerTurn, EnemyTurn, Win, Lose }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Awake()
     {
-        currentState = TurnState.PlayerTurn;
-        StartCoroutine(HandleTurn());
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
-
-    IEnumerator HandleTurn()
+     void Start()
     {
-        while (true)
-        {
-            switch (currentState)
-            {
-                case TurnState.PlayerTurn:
-                    playerHasActed = false;
-                    yield return new WaitUntil(() => playerHasActed);
-                    currentState = TurnState.EnemyTurn;
-                    break;
-
-                case TurnState.EnemyTurn:
-                    playerHasActed = false;
-                    yield return new WaitUntil(() => playerHasActed);
-                    currentState = TurnState.PlayerTurn;
-                    break;
-            }
-
-            yield return null;
-        }
+        BeginPlayerTurn();
     }
-        public void OnPlayerActedComplete()
-        {
-          playerHasActed = true;
-        }
+
+    public void NextTurn()
+    {
+
     }
+
+    public void BeginPlayerTurn()
+    {
+
+    }
+
+    public void BeginEnemyTurn()
+    {
+
+    }
+
+    public void BossDied()
+    {
+
+    }
+
+    public void PlayerDied()
+    {
+
+    }
+}
