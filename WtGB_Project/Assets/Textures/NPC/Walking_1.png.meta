@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5be26080c9cdaa845867ca40c4c18289
+guid: e669afc2da228624ea247c3a0a3e303a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,23 +97,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Soil_Untilled_0
+      name: Walking_0
       rect:
         serializedVersion: 2
-        x: 102
-        y: 105
-        width: 820
-        height: 815
+        x: 75
+        y: 70
+        width: 660
+        height: 920
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3e706f53effd8a4eaa812e2e7f6435f
-      internalID: -1180323804
+      spriteID: cb24c5bad33fd274bb1057d36a2a465b
+      internalID: 51694248
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 12e2d71c4e0e0ee4db221510fe0e98f2
+    spriteID: 78bd6a8da8d0a694fba47ef08d168c9b
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Soil_Untilled_0: -1180323804
+      Walking_0: 51694248
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

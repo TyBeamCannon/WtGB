@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5be26080c9cdaa845867ca40c4c18289
+guid: 9d1340e03b303024dbe13d3973106543
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,23 +97,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Soil_Untilled_0
+      name: Watering_2_0
       rect:
         serializedVersion: 2
-        x: 102
-        y: 105
-        width: 820
-        height: 815
+        x: 60
+        y: 55
+        width: 888
+        height: 929
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3e706f53effd8a4eaa812e2e7f6435f
-      internalID: -1180323804
+      spriteID: c86d4a1c6722a084fbadb1185bb90689
+      internalID: 1685578252
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 12e2d71c4e0e0ee4db221510fe0e98f2
+    spriteID: 82314e70dc23caa4181b3b123ca21308
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Soil_Untilled_0: -1180323804
+      Watering_2_0: 1685578252
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
