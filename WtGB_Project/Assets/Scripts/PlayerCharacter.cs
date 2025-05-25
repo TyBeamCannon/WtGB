@@ -26,6 +26,31 @@ public class PlayerCharacter : MonoBehaviour
     private FishingTrigger currentFishingSpot;
 
 
+    [Header("Sound Clips")]
+    [SerializeField] private AudioSource soundSource;
+    [SerializeField] AudioClip[] footSteps;
+    [SerializeField] AudioClip miningSound;
+    [SerializeField] AudioClip plantSound;
+    [SerializeField] AudioClip waterSound;
+    [SerializeField] AudioClip harvestSound;
+    [SerializeField] AudioClip tillSound;
+    [SerializeField] AudioClip castSound;
+    [SerializeField] AudioClip catchSound;
+    [SerializeField] AudioClip[] itemGather;
+
+    public void PlayFootstep() => soundSource.PlayOneShot(footSteps[Random.Range(1,footSteps.Length)]);
+    public void PlayGather() => soundSource.PlayOneShot(footSteps[Random.Range(1, itemGather.Length)]);
+    public void PlayMine() => soundSource.PlayOneShot(miningSound);
+    public void PlayPlant() => soundSource.PlayOneShot(plantSound);
+    public void PlayWater() => soundSource.PlayOneShot(waterSound);
+    public void PlayHarvest() => soundSource.PlayOneShot(harvestSound);
+    public void PlayTill() => soundSource.PlayOneShot(tillSound);
+    public void PlayCast() => soundSource.PlayOneShot(castSound);
+    public void PlayCatch() => soundSource.PlayOneShot(catchSound);
+
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
