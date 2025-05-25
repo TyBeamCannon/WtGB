@@ -14,6 +14,6 @@ public class ButtonBehavior : MonoBehaviour
 
     public void OnClick()
     {
-        OffHover();
+        GetComponent<RectTransform>().localEulerAngles += new Vector3(0, 0, -11);
     }
 }

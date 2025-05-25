@@ -17,6 +17,7 @@ public class SettingFunctions : MonoBehaviour
     [SerializeField] AudioClip sliderSelect;
     [SerializeField] AudioClip sliderDeselect;
     [SerializeField] AudioClip buttonClick;
+    [SerializeField] AudioClip buttonHover;
 
     [Header("Settings Adjusters")]
     [SerializeField] Toggle windowToggle;
@@ -229,5 +230,10 @@ public class SettingFunctions : MonoBehaviour
     public void ButtonClick()
     {
         sfx.PlayOneShot(buttonClick);
+    }
+
+    public void ButtonHover()
+    {
+        sfx.PlayOneShot(buttonHover);
     }
 }

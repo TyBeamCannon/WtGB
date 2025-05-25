@@ -3,7 +3,37 @@ guid: 999785fc64955a443b7f7e0d2e5316c9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cube.294_Cube.294_BrickMat
+    second: {fileID: 2100000, guid: dfa6f5bb1a0c62e4f88e64e75330d283, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cube.294_Cube.294_ChimneyBrimMat
+    second: {fileID: 2100000, guid: 6d055c449d10353449a941062cf9e1d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cube.294_Cube.294_GlassMat
+    second: {fileID: 2100000, guid: 0d75846dd72e2b242a4bfa99872046cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cube.294_Cube.294_RoofTileMat
+    second: {fileID: 2100000, guid: c3728ec2c4d7800469610a475b804198, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cube.294_Cube.294_RoofTopMat
+    second: {fileID: 2100000, guid: 6a27f65ae9b764642920e807d3eac965, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cube.294_Cube.294_WoodMat
+    second: {fileID: 2100000, guid: e7379b5d7e7e8df458eade4de27ec657, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
