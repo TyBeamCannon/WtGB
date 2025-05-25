@@ -37,6 +37,10 @@ namespace CardStats
             }
         }    
 
+        public void OnButtonClicked()
+        {
+            Debug.Log("Button Clicked");
+        }
         void OnCardSlotClicked(int index)
         {
         }

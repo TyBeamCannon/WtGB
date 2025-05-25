@@ -10,7 +10,7 @@ namespace CardStats
 
         public string cardName;
 
-        public Image card;
+        public Sprite card;
 
         public CardType cardType;        
 
@@ -34,7 +34,7 @@ namespace CardStats
         public float castTime;
         public float cooldown;
         public string sideEffect;
-
+        internal object cardImage;
 
         public enum CardType
         {
