@@ -93,13 +93,11 @@ public class ShopManager : MonoBehaviour
         {
             sellButtonPrefab.Initialize(playerItems[i]);
             Instantiate(sellButtonPrefab, sellContent.transform);
-            Debug.Log("Open Shop Called");
         }
     }
 
     public void CloseShopUI()
     {
-        Debug.Log("Player items in shop: " + playerItems.Count);
         if (shopUIOpen)
         {
             shopUIOpen = false;
@@ -117,7 +115,6 @@ public class ShopManager : MonoBehaviour
                 GameManager.instance.InventoryItemSlots.Add(k);
                 Destroy(sellContent.transform.GetChild(k).gameObject);
             }
-            Debug.Log("Transferred to GM: " + GameManager.instance.InventoryItems.Count);
         }
     }
 }

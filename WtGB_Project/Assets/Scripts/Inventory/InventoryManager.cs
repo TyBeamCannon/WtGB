@@ -24,7 +24,6 @@ public class InventoryManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        giveItemBtn.onClick.AddListener(delegate { SpawnInventoryItem(); });
     }
 
     public void SpawnInventoryItem(Item item = null)

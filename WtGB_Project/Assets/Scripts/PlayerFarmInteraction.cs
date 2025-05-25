@@ -30,7 +30,6 @@ public class PlayerFarmInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
 
-            Debug.Log("Pressed E near Tile");
 
             if(!currentTile.IsTilled())
             {
@@ -73,7 +72,6 @@ public class PlayerFarmInteraction : MonoBehaviour
     {
         if (other.TryGetComponent(out FarmTile tile))
         {
-            Debug.Log("Entered FarmTile: " + tile.name);
             currentTile = tile;
         }
     }

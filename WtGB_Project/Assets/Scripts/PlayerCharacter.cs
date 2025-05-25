@@ -39,7 +39,6 @@ public class PlayerCharacter : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.T))
         {
             fatigueManager.UseStamina(10);
-            Debug.Log("Used 10 Stamina");
         }
         //Tyler// Testing out the Fatigue on the character
 

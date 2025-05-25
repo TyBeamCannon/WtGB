@@ -48,13 +48,11 @@ public class TurnManager : MonoBehaviour
         state = TurnState.PlayerTurn;
         currentEnemyIndex = 0;
 
-        Debug.Log("Player Turn has started");
     }
 
     public void BeginEnemyTurn()
     {
         state = TurnState.EnemyTurn;
-        Debug.Log("EnemyTurn has started");
 
         enemies.RemoveAll(e => e == null);
 
@@ -75,13 +73,11 @@ public class TurnManager : MonoBehaviour
         if(enemies.Count == 0)
         {
             state = TurnState.Win;
-            Debug.Log("You win!");
         }
     }
 
     public void PlayerDied()
     {
         state = TurnState.Lose;
-        Debug.Log("You Lose!");
     }
 }

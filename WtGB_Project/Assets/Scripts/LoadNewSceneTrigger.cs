@@ -11,7 +11,7 @@ public class LoadNewSceneTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (inTrigger && Input.GetKey(key: KeyCode.S))
+        if (inTrigger && (Input.GetKey(key: KeyCode.S) || Input.GetKey(key: KeyCode.W)))
         {
             switch (sceneType)
             {

@@ -39,7 +39,6 @@ namespace CardStats
 
         void OnCardSlotClicked(int index)
         {
-            Debug.Log($"Card Slot {index} clicked!");
         }
     
 
@@ -59,7 +58,6 @@ namespace CardStats
         {
            if(deckPanel == null || cardButtonPrefab == null || deckCountText == null || playerDeck == null)
             {
-                Debug.LogError("DeckUIUManager: one or more references are not assigned in the inspector");
                 return;
             }
 
@@ -91,7 +89,6 @@ namespace CardStats
         {
            if(deckPanel == null || cardButtonPrefab == null || deckCountText == null || playerDeck == null)
             {
-                Debug.LogError("DeckUIUManager: one or more references are not assigned in the inspector");
                 return;
             }
         }

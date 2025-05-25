@@ -23,7 +23,6 @@ public class FishingMinigameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         fishingUI.SetActive(true);
-        Debug.Log("Fishing minigame started!");
 
 
         // Come back to start movement logic for the fish spawned
@@ -36,7 +35,6 @@ public class FishingMinigameManager : MonoBehaviour
 
         if(success)
         {
-            Debug.Log("You Caught fish!");
             if(fishDrop != null && fishCaught != null)
             {
                 GameObject drop = Instantiate(fishDrop, dropPoint.position, Quaternion.identity);
@@ -46,7 +44,6 @@ public class FishingMinigameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("You lost fish!");
         }
 
     }

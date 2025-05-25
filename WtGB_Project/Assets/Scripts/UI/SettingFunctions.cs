@@ -31,9 +31,10 @@ public class SettingFunctions : MonoBehaviour
 
     private void Start()
     {
+        if (sfx == null)
+            sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         if (GameManager.instance == null || GameManager.instance.data == null)
         {
-            Debug.LogWarning("GameManager or GameManager.data is missing!");
             return;
         }
 
@@ -62,7 +63,6 @@ public class SettingFunctions : MonoBehaviour
             BreakDefaultButton();
         }
 #if UNITY_EDITOR
-        Debug.Log("Windowed = " + windowToggle.isOn.ToString());
 #else
     Screen.fullScreen = !windowToggle.isOn;
 #endif

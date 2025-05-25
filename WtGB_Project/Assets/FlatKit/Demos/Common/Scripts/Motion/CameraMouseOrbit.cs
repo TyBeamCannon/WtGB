@@ -61,7 +61,6 @@ public class CameraMouseOrbit : MonoBehaviour {
                 targetPosition = targetTransform.position + targetOffset;
             }
             else {
-                Debug.LogWarning("Reference transform is not set.");
             }
         }
     }
@@ -72,7 +71,6 @@ public class CameraMouseOrbit : MonoBehaviour {
                 targetPosition = targetTransform.position + targetOffset;
             }
             else {
-                Debug.LogWarning("Reference transform is not set.");
             }
         }
 

@@ -29,15 +29,11 @@ public class FishingTrigger : MonoBehaviour
     private IEnumerator HandleFishing()
     {
         isFishing = true;
-        Debug.Log("Casting line...");
 
         float waitTime = Random.Range(minBiteTime, maxBiteTime);
-        Debug.Log("Waiting for " + waitTime + " seconds");
         yield return new WaitForSeconds(waitTime);
 
-        Debug.Log("Fish bite! Starting minigame...");
         // need to make the minigame manager maybe into a straight up minigame manager
-        Debug.Log("Fish bite! Starting minigame...");
         FishingMinigameManager.instance.StartFishingMinigame();
 
         isFishing = false;
@@ -45,11 +41,9 @@ public class FishingTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("SomethingEntered: " + other.name);
 
         if(other.CompareTag("Player"))
         {
-            Debug.Log("Player entered fishing zone!");
             playerInZone = true;
         }
     }
@@ -58,7 +52,6 @@ public class FishingTrigger : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log("Player Left fishing zone!");
             playerInZone = false;
         }
     }

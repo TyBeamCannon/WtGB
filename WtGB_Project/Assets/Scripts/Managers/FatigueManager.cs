@@ -60,7 +60,6 @@ public class FatigueManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not Enough Stamina!");
             return false;
         }
     }

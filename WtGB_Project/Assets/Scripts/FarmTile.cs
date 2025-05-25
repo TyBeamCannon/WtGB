@@ -85,7 +85,6 @@ public class FarmTile : MonoBehaviour
     {
         if(isPlanted && growthStage >= plantedSeed.totalGrowthStages)
         {
-            Debug.Log("Crop harvested: " + plantedSeed.cropName);
 
             if(harvestDropPrefab != null )
             {
@@ -118,7 +117,6 @@ public class FarmTile : MonoBehaviour
     {
         if (isTilled && !isPlanted)
         {
-            Debug.Log("Updating sprite to tilledSprite!");
             spriteRenderer.sprite = tilledSprite;
             return;
         }
@@ -126,7 +124,6 @@ public class FarmTile : MonoBehaviour
         if(isPlanted && growthStageSprites.Length > 0)
         {
             int index = Mathf.Clamp(growthStage, 0 , growthStageSprites.Length - 1);
-            Debug.Log("Updating sprite to growth stage: " + index);
             spriteRenderer.sprite = growthStageSprites[index];
         }
     }

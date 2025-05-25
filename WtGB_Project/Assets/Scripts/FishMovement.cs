@@ -128,7 +128,6 @@ public class FishMovement : MonoBehaviour
 
         if (other.CompareTag("CatchZone"))
         {
-            Debug.Log("Fish Entered catch Zone");
             FishingMinigameManager.instance.EndFishingMinigame(true);
         }
     }
