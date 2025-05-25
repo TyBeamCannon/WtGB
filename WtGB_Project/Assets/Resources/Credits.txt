@@ -1,0 +1,28 @@
+Credits
+
+Creators
+
+- Jeffrey Nieto
+- Tyler Manis
+- Cecil Bass
+
+Sprites And Assets
+
+- ChatGPT by OpenAi
+- Delapouite on game-icons.net
+- Lorc on game-icons.net
+
+- picoplankton at picoplankton.itch.io
+
+Sounds And Music
+
+- ElevenLabs at elevenlabs.io
+- Menu Theme:
+	- Many Notes of Love on westarmusic.sourceaudio.com
+- Town Theme:
+	- Thoughtful Calm on westarmusic.sourceaudio.com
+
+- Home Theme:
+	- Hope on westarmusic.sourceaudio.com
+- Card Battle Theme:
+	- Clear Blue Skies on westarmusic.sourceaudio.com
