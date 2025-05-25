@@ -13,6 +13,7 @@ public class PlayerCharacter : MonoBehaviour
 
     [SerializeField] FatigueManager fatigueManager;
     [SerializeField] CharacterController controller;
+    [SerializeField] Animator pcAnimator;
    
     Vector3 velocity;
     Vector3 moveDirection;
@@ -23,6 +24,31 @@ public class PlayerCharacter : MonoBehaviour
     private FarmTile currentfarmTile;
     private MiningNode currentMiningNode;
     private FishingTrigger currentFishingSpot;
+
+
+    [Header("Sound Clips")]
+    [SerializeField] private AudioSource soundSource;
+    [SerializeField] AudioClip[] footSteps;
+    [SerializeField] AudioClip miningSound;
+    [SerializeField] AudioClip plantSound;
+    [SerializeField] AudioClip waterSound;
+    [SerializeField] AudioClip harvestSound;
+    [SerializeField] AudioClip tillSound;
+    [SerializeField] AudioClip castSound;
+    [SerializeField] AudioClip catchSound;
+    [SerializeField] AudioClip[] itemGather;
+
+    public void PlayFootstep() => soundSource.PlayOneShot(footSteps[Random.Range(1,footSteps.Length)]);
+    public void PlayGather() => soundSource.PlayOneShot(footSteps[Random.Range(1, itemGather.Length)]);
+    public void PlayMine() => soundSource.PlayOneShot(miningSound);
+    public void PlayPlant() => soundSource.PlayOneShot(plantSound);
+    public void PlayWater() => soundSource.PlayOneShot(waterSound);
+    public void PlayHarvest() => soundSource.PlayOneShot(harvestSound);
+    public void PlayTill() => soundSource.PlayOneShot(tillSound);
+    public void PlayCast() => soundSource.PlayOneShot(castSound);
+    public void PlayCatch() => soundSource.PlayOneShot(catchSound);
+
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -42,6 +68,55 @@ public class PlayerCharacter : MonoBehaviour
             Debug.Log("Used 10 Stamina");
         }
         //Tyler// Testing out the Fatigue on the character
+
+        if(Input.GetAxis("Horizontal") !=0 || Input.GetAxis("Vertical") !=0)
+        {
+            pcAnimator.SetBool("isWalking", true);
+        }
+        else
+        {
+            pcAnimator.SetBool("isWalking", false);
+        }
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            if (currentfarmTile != null)
+            {
+                if (!currentfarmTile.IsTilled())
+                {
+                    pcAnimator.SetTrigger("doTill");
+                }
+                else if (!currentfarmTile.IsPlanted())
+                {
+                    pcAnimator.SetTrigger("doPlant");
+                }
+                else if (!currentfarmTile.IsWatered())
+                {
+                    pcAnimator.SetTrigger("doWater");
+                }
+                else if (!currentfarmTile.IsFullyGrown())
+                {
+                    pcAnimator.SetTrigger("doHarvest");
+                }
+            }
+            else if(currentMiningNode != null)
+            {
+                pcAnimator.SetTrigger("doMine");
+            }
+            else if (currentFishingSpot != null)
+            {
+                pcAnimator.SetTrigger("doFish");
+            }
+        }
+
+        if (moveDirection.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if(moveDirection.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
 
         movement();
         Sprint();

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7ba5d6516978f314c82e858238aa5212
+guid: a90597fce70faf24bbd1a0076e096f4c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mine_Start_0
+      name: Till_2_0
       rect:
         serializedVersion: 2
-        x: 107
-        y: 40
-        width: 787
-        height: 964
+        x: 88
+        y: 99
+        width: 846
+        height: 858
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 900fa1b072a9294498d818981c725628
-      internalID: 1150695558
+      spriteID: 53661e715201d56409e0bc9a14b32750
+      internalID: 602368453
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f12bbab12b02c514496791399af0e9dd
+    spriteID: fa1e191197f67ab48a70de8cc4787e74
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mine_Start_0: 1150695558
+      Till_2_0: 602368453
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
