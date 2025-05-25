@@ -21,7 +21,6 @@ public class OrePickup : MonoBehaviour
         {
             GameManager.instance.InventoryItems.Add(ore);
             GameManager.instance.InventoryItemSlots.Add(GameManager.instance.InventoryItemSlots.Count);
-            
             Destroy(gameObject);
         }
     }

@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mine_Start_0
+      name: ChatGPT ImagMining_0
       rect:
         serializedVersion: 2
-        x: 107
-        y: 40
+        x: 108
+        y: 38
         width: 787
-        height: 964
+        height: 967
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 900fa1b072a9294498d818981c725628
-      internalID: 1150695558
+      spriteID: 3d10522a328af454383561849c0ce3fa
+      internalID: -2113443438
       vertices: []
       indices: 
       edges: []
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mine_Start_0: 1150695558
+      ChatGPT ImagMining_0: -2113443438
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
