@@ -13,6 +13,7 @@ public class PlayerCharacter : MonoBehaviour
 
     [SerializeField] FatigueManager fatigueManager;
     [SerializeField] CharacterController controller;
+    [SerializeField] Animator pcAnimator;
    
     Vector3 velocity;
     Vector3 moveDirection;
@@ -42,6 +43,55 @@ public class PlayerCharacter : MonoBehaviour
             Debug.Log("Used 10 Stamina");
         }
         //Tyler// Testing out the Fatigue on the character
+
+        if(Input.GetAxis("Horizontal") !=0 || Input.GetAxis("Vertical") !=0)
+        {
+            pcAnimator.SetBool("isWalking", true);
+        }
+        else
+        {
+            pcAnimator.SetBool("isWalking", false);
+        }
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            if (currentfarmTile != null)
+            {
+                if (!currentfarmTile.IsTilled())
+                {
+                    pcAnimator.SetTrigger("doTill");
+                }
+                else if (!currentfarmTile.IsPlanted())
+                {
+                    pcAnimator.SetTrigger("doPlant");
+                }
+                else if (!currentfarmTile.IsWatered())
+                {
+                    pcAnimator.SetTrigger("doWater");
+                }
+                else if (!currentfarmTile.IsFullyGrown())
+                {
+                    pcAnimator.SetTrigger("doHarvest");
+                }
+            }
+            else if(currentMiningNode != null)
+            {
+                pcAnimator.SetTrigger("doMine");
+            }
+            else if (currentFishingSpot != null)
+            {
+                pcAnimator.SetTrigger("doFish");
+            }
+        }
+
+        if (moveDirection.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if(moveDirection.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
 
         movement();
         Sprint();
