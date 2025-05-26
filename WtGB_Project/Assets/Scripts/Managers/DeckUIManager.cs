@@ -13,6 +13,7 @@ namespace CardStats
         public Button openDeckButton;
         public TextMeshProUGUI deckCountText;
         public GameObject deckMenuPanel;
+        public GameObject deckUIContainer;
 
         public Button[] cardSlotButtons;
 
@@ -112,6 +113,16 @@ namespace CardStats
             {
                 playerDeck.deck.Remove(card);
                 RenderDeck();
+            }
+        }
+
+        public void ToggleDeckUI()
+        {
+            if(deckUIContainer != null)
+            {
+                bool isActive = deckUIContainer.activeSelf;
+                deckUIContainer.SetActive(!isActive);
+                Debug.Log($"DeckUI is active");
             }
         }
 
