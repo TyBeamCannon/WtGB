@@ -4991,6 +4991,114 @@ NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 9004815138876212041, guid: 98e1be71b6dcf584b96be8e8832379c0, type: 3}
   m_PrefabInstance: {fileID: 9082366215151431209}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &772368502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3711020486833684125, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+  m_PrefabInstance: {fileID: 2008355739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &772368505 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9153216082922654013, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+  m_PrefabInstance: {fileID: 2008355739}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772368502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &772368507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772368502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 772368505}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1162470091}
+        m_TargetAssemblyTypeName: CardStats.DeckUIManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1162470091}
+        m_TargetAssemblyTypeName: CardStats.DeckUIManager, Assembly-CSharp
+        m_MethodName: ShuffleDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1162470091}
+        m_TargetAssemblyTypeName: CardStats.DeckUIManager, Assembly-CSharp
+        m_MethodName: RemoveFromDeck
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 6d495c48147a3554c9704dd62d915fee, type: 2}
+          m_ObjectArgumentAssemblyTypeName: CardStats.Card, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1162470091}
+        m_TargetAssemblyTypeName: CardStats.DeckUIManager, Assembly-CSharp
+        m_MethodName: AddToDeck
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 6d495c48147a3554c9704dd62d915fee, type: 2}
+          m_ObjectArgumentAssemblyTypeName: CardStats.Card, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &786088364
 GameObject:
   m_ObjectHideFlags: 0
@@ -5597,6 +5705,114 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6673381600984418557, guid: 778959006bb6d3446af99f1c427a4dc8, type: 3}
   m_PrefabInstance: {fileID: 828020690}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &829239813 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4980347781877710595, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+  m_PrefabInstance: {fileID: 2008355739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &829239816 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8315417537051933952, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+  m_PrefabInstance: {fileID: 2008355739}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829239813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &829239818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829239813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 829239816}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1162470091}
+        m_TargetAssemblyTypeName: CardStats.DeckUIManager, Assembly-CSharp
+        m_MethodName: ShuffleDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1162470091}
+        m_TargetAssemblyTypeName: CardStats.DeckUIManager, Assembly-CSharp
+        m_MethodName: AddToDeck
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 4129a10e05d7a26489d52c8b1f628882, type: 2}
+          m_ObjectArgumentAssemblyTypeName: CardStats.Card, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1162470091}
+        m_TargetAssemblyTypeName: CardStats.DeckUIManager, Assembly-CSharp
+        m_MethodName: RemoveFromDeck
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 4129a10e05d7a26489d52c8b1f628882, type: 2}
+          m_ObjectArgumentAssemblyTypeName: CardStats.Card, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1162470091}
+        m_TargetAssemblyTypeName: CardStats.DeckUIManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &832391541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8875,6 +9091,114 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6673381600984418557, guid: 778959006bb6d3446af99f1c427a4dc8, type: 3}
   m_PrefabInstance: {fileID: 1144681934}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1153512862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6837317980207155759, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+  m_PrefabInstance: {fileID: 2008355739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1153512865 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4102135478801886594, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+  m_PrefabInstance: {fileID: 2008355739}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153512862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1153512867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153512862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1153512865}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1162470091}
+        m_TargetAssemblyTypeName: CardStats.DeckUIManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1162470091}
+        m_TargetAssemblyTypeName: CardStats.DeckUIManager, Assembly-CSharp
+        m_MethodName: RemoveFromDeck
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: f8879847b8443d14f9585d29581907a3, type: 2}
+          m_ObjectArgumentAssemblyTypeName: CardStats.Card, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1162470091}
+        m_TargetAssemblyTypeName: CardStats.DeckUIManager, Assembly-CSharp
+        m_MethodName: AddToDeck
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: f8879847b8443d14f9585d29581907a3, type: 2}
+          m_ObjectArgumentAssemblyTypeName: CardStats.Card, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1162470091}
+        m_TargetAssemblyTypeName: CardStats.DeckUIManager, Assembly-CSharp
+        m_MethodName: ShuffleDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1153907952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14369,6 +14693,114 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: d49a5c07847be50479d79d9e744c5304, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1 &1759017577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5510229059812706418, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+  m_PrefabInstance: {fileID: 2008355739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1759017580 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5308426610174148958, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+  m_PrefabInstance: {fileID: 2008355739}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759017577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1759017582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759017577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1759017580}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1162470091}
+        m_TargetAssemblyTypeName: CardStats.DeckUIManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1162470091}
+        m_TargetAssemblyTypeName: CardStats.DeckUIManager, Assembly-CSharp
+        m_MethodName: RemoveFromDeck
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 98eff751e565e894c89195aaa8dcd61c, type: 2}
+          m_ObjectArgumentAssemblyTypeName: CardStats.Card, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1162470091}
+        m_TargetAssemblyTypeName: CardStats.DeckUIManager, Assembly-CSharp
+        m_MethodName: AddToDeck
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 98eff751e565e894c89195aaa8dcd61c, type: 2}
+          m_ObjectArgumentAssemblyTypeName: CardStats.Card, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1162470091}
+        m_TargetAssemblyTypeName: CardStats.DeckUIManager, Assembly-CSharp
+        m_MethodName: ShuffleDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1761006183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16139,10 +16571,128 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 772368505}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1162470091}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1162470091}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1162470091}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1162470091}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ShuffleDeck
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: RemoveFromDeck
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: AddToDeck
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CardStats.DeckUIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CardStats.DeckUIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: CardStats.DeckUIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: CardStats.DeckUIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d495c48147a3554c9704dd62d915fee, type: 2}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d495c48147a3554c9704dd62d915fee, type: 2}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: CardStats.Card, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: CardStats.Card, Assembly-CSharp
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1080252717217693165, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+    - {fileID: 8574037876847077725, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3711020486833684125, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 772368507}
+    - targetCorrespondingSourceObject: {fileID: 5510229059812706418, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1759017582}
+    - targetCorrespondingSourceObject: {fileID: 6837317980207155759, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1153512867}
+    - targetCorrespondingSourceObject: {fileID: 4980347781877710595, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 829239818}
   m_SourcePrefab: {fileID: 100100000, guid: bd8a60c418130d54ab21f618d497183b, type: 3}
 --- !u!1001 &2010043617
 PrefabInstance:

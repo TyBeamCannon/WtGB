@@ -17,7 +17,7 @@ namespace CardStats
 
         public Button[] cardSlotButtons;
 
-        [SerializeField] int maxDeckSize;
+        [SerializeField] int maxDeckSize = 30;
 
         bool isDeckMenuOpen = false;
 
@@ -36,16 +36,52 @@ namespace CardStats
                 int index = i;
                 cardSlotButtons[i].onClick.AddListener(() => OnCardSlotClicked(index));
             }
-        }    
+        }
+
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                if (playerDeck.allCards.Count > 0)
+                    AddToDeck(playerDeck.allCards[0]);
+            }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                if (playerDeck.allCards.Count > 0)
+                    RemoveFromDeck(playerDeck.allCards[0]);
+            }
+
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                if (playerDeck.allCards.Count > 0)
+                    ShuffleDeck();
+            }
+        }
 
         public void OnButtonClicked()
         {
             Debug.Log("Button Clicked");
         }
-        void OnCardSlotClicked(int index)
+
+        public void OnCardSlotClicked(int index)
         {
+            Debug.Log($"Card Slot {index} clicked");
         }
-    
+
+        public void SelectCard(int index)
+        {
+            
+        }
+        public void DeselectCard(int index)
+        {
+
+        }
+
+        public void DeselectAllSlots()
+        {
+
+        }
 
         public void ToggleDeckMenu()
         {
@@ -125,7 +161,7 @@ namespace CardStats
                 Debug.Log($"DeckUI is active");
             }
         }
-
+        
         public void ShuffleDeck()
         {
             for(int i = 0; i < playerDeck.deck.Count; i++)
