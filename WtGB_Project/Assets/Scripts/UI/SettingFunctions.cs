@@ -192,7 +192,7 @@ public class SettingFunctions : MonoBehaviour
             Master();
             windowToggle.isOn = false;
             Windowed();
-            resolutionDropdown.value = 2;
+            resolutionDropdown.value = 1;
             Resolution();
             FixDefaultButton();
         }

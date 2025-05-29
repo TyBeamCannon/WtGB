@@ -6674,7 +6674,7 @@ MonoBehaviour:
   m_Placeholder: {fileID: 0}
   m_ItemText: {fileID: 8942634897532509598}
   m_ItemImage: {fileID: 0}
-  m_Value: 0
+  m_Value: 1
   m_MultiSelect: 0
   m_Options:
     m_Options:

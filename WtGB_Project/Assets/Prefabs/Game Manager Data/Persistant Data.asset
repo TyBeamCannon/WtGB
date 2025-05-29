@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Persistant Data
   m_EditorClassIdentifier: 
   settingsInitailized: 1
-  windowedMode: 1
-  resIndex: 2
+  windowedMode: 0
+  resIndex: 1
   masterValue: 1
   sfxValue: 1
   musicValue: 1
