@@ -2391,6 +2391,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Shop
       objectReference: {fileID: 0}
+    - target: {fileID: 6946167695830326620, guid: 2791ffb1f2401d84ca13693d665c211c, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6946167695830326620, guid: 2791ffb1f2401d84ca13693d665c211c, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6946167695830326620, guid: 2791ffb1f2401d84ca13693d665c211c, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6946167695830326620, guid: 2791ffb1f2401d84ca13693d665c211c, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 8462286290574340844, guid: 2791ffb1f2401d84ca13693d665c211c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.34829044
