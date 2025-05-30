@@ -18,6 +18,7 @@ namespace CardStats
         public Button[] cardSlotButtons;
 
         [SerializeField] int maxDeckSize = 30;
+        int selectedCardsIndex;
 
         bool isDeckMenuOpen = false;
 
@@ -71,16 +72,28 @@ namespace CardStats
 
         public void SelectCard(int index)
         {
-            
+            DeselectAllSlots();
+            selectedCardsIndex = index;
+            var colors = cardSlotButtons[index].colors;
+            colors.normalColor = Color.yellow;
+            cardSlotButtons[index].colors = colors;
         }
         public void DeselectCard(int index)
         {
-
+            selectedCardsIndex = -1;
+            var colors = cardSlotButtons[index].colors;
+            colors.normalColor = Color.white;
+            cardSlotButtons[index].colors = colors;
         }
 
         public void DeselectAllSlots()
         {
-
+            for(int i = 0; i < cardSlotButtons.Length; i++)
+            {
+                var colors = cardSlotButtons[i].colors;
+                colors.normalColor = Color.white;
+                cardSlotButtons[i].colors = colors;
+            }
         }
 
         public void ToggleDeckMenu()
