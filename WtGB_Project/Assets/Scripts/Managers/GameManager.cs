@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Time")]
     [SerializeField] GameObject clockUI;
+
+    float timeScaleOg;
 
     [Header("Level")]
     [SerializeField] GameObject[] sceneSpawnPoints;
@@ -57,6 +60,8 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         if (player != null)
             playerScript = player.GetComponent<PlayerCharacter>();
+
+        timeScaleOg = Time.timeScale;
     }
 
     private void Update()
@@ -104,6 +109,8 @@ public class GameManager : MonoBehaviour
         {
             InventoryManager.instance.LoadIntoInventory(InventoryItems[i], InventoryItemSlots[i]);
         }
+
+        Pause();
     }
 
     void CloseInventory()
@@ -114,6 +121,8 @@ public class GameManager : MonoBehaviour
         InventoryItemSlots = InventoryManager.instance.SaveItemSlotFromInventory();
         InventoryItems = InventoryManager.instance.SaveItemFromInventory();
         Destroy(transform.GetChild(transform.childCount - 1).gameObject);
+
+        Unpause();
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -128,5 +137,19 @@ public class GameManager : MonoBehaviour
         dialogueActive = false;
         DialogueManager.instance.EndDialogue();
         Destroy(transform.GetChild(transform.childCount - 1).gameObject);
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void Unpause()
+    {
+        Time.timeScale = timeScaleOg;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

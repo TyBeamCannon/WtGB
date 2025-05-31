@@ -15,6 +15,8 @@ public class ButtonFunctions : MonoBehaviour
 
         SceneManager.LoadScene("MainGame");
         GameManager.instance.inMainMenu = false;
+
+        GameManager.instance.Unpause();
     }
 
     public void Settings()
