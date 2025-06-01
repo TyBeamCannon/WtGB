@@ -100,10 +100,10 @@ TextureImporter:
       name: Button Sign_0
       rect:
         serializedVersion: 2
-        x: 72
-        y: 287
-        width: 890
-        height: 324
+        x: 3
+        y: 206
+        width: 907
+        height: 402
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

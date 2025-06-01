@@ -1,19 +1,21 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonBehavior : MonoBehaviour
 {
+    [SerializeField] Text buttonText;
     public void OnHover()
     {
-        GetComponent<RectTransform>().localEulerAngles += new Vector3(0, 0, 11);
+        buttonText.transform.localEulerAngles = new Vector3(0, 0, 9);
     }
 
     public void OffHover()
     {
-        GetComponent<RectTransform>().localEulerAngles += new Vector3(0, 0, -11);
+        buttonText.transform.localEulerAngles = new Vector3(0, 0, -3.2f);
     }
 
     public void OnClick()
     {
-        GetComponent<RectTransform>().localEulerAngles += new Vector3(0, 0, -11);
+        buttonText.transform.localEulerAngles = new Vector3(0, 0, 9);
     }
 }

@@ -2,20 +2,22 @@ using UnityEngine;
 
 public class MusicTriggers : MonoBehaviour
 {
-    [SerializeField] AudioSource musicBox;
-
-    [SerializeField] AudioClip theme;
+    [SerializeField] AudioSource homeTheme;
+    [SerializeField] AudioSource townTheme;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.isTrigger)
             return;
-        musicBox.PlayOneShot(theme, GameManager.instance.MusicValue * GameManager.instance.MasterValue);
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.isTrigger)
-            return;
-        musicBox.Stop();
+        if (homeTheme.isPlaying)
+        {
+            homeTheme.Stop();
+            townTheme.Play();
+        }
+        else if (townTheme.isPlaying)
+        {
+            townTheme.Stop();
+            homeTheme.Play();
+        }
     }
 }
